@@ -1,0 +1,78 @@
+Testfile2
+-----------------  
+SRC 01
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 10
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 0011
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 0101
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 0110
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 1001
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 1010
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 1100
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 000111
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 001011
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 001101
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 001110
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 010011
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 010101
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 010110
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 011001
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 011010
+Keine Syntaxfehler entdeckt!
+-------------------------------------
+-----------------  
+SRC 110
+ALG.TMP, line 2: syntax error
+-----------------  
+SRC 100
+ALG.TMP, line 2: syntax error
+-----------------  
+SRC 10101010101
+ALG.TMP, line 2: syntax error

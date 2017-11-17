@@ -1,0 +1,100 @@
+Datei LIES_MICH.txt im Ordner ..\projects\04_TextPad
+
+Einleitung
+----------
+Die Dateien in diesem Ordner enthalten bestimmte Einstellungen fuer den
+Editor TextPad (siehe www.textpad.com). Sie koennen nuetzlich sein, wenn man
+mit dem TextPad Gentle-Quelldateien editieren will.
+
+Welche TextPad-Einstellung steht in welcher Datei:
+
+CUSTOM.BND       Enthaelt Tastenkombinationen, z.B.
+                 Alt-C (Kopiert die aktuelle Zeile in die Ablage) und
+                 Alt-Y (Loescht die aktuelle Zeile)
+gentle.syn       Enthaelt Angaben zur Syntax-Hervorhebung von
+                 Gentle-Quelldateien. Erfordert, dass man im TextPad
+                 eine entsprechende Dokumentenklasse erstellt
+                 (siehe unten) und dabei diese .syn-Datei angibt.
+gentle.tcl       Enthaelt ein paar Textbausteine fuer Gentle-Quelldateien,
+                 bei denen es muehsam waehre, sie einzutippen
+                 (z.B. eine Minuszeile "// --- ... --", die 76 Zeichen
+                 lang ist)
+C-Comment.tpm    Ein TextPad-Makro, welches am Anfang von jeder ausgewaehlten
+                 Zeile die drei Zeichen "// " einfuegt (wodurch die Zeile zu
+                 einem Kommentar der Sprache C oder Gentle gemacht wird).
+                 HINWEIS: Erst die Zeilen (z.B. mit der Maus) auswaehlen,
+                 dann das Makro im Menue "Makros" aufrufen.
+C-Uncomment.tpm  Ein TextPad-Makro, welches vom Anfang jeder ausgewaehlten
+                 Zeile die drei Zeichen "// " (falls vorhanden) entfernt
+                 HINWEIS: Erst die Zeilen (z.B. mit der Maus) auswaehlen,
+                 dann das Makro im Menue "Makros" aufrufen.
+
+
+Benutzung der Dateien auf einem eigenen Rechner
+-----------------------------------------------
+Installieren Sie zuerst den TextPad auf Ihrem Rechner, z.B. im Ordner
+C:\Programme\TextPad. Kopieren Sie dann die obigen Dateien in den Ordner
+C:\Programme\TextPad\Samples. Starten Sie danach den TextPad.
+
+
+Benutzung der Dateien auf den Rechnern des SWE-Labors
+-----------------------------------------------------
+Angenommen, Ihr Benutzername im SWE-Labor ist s123456. Dann kopieren Sie
+die obigen Dateien in den Ordner
+C:\Users\s123456\AppData\Roaming\Helios\TextPad\5.0
+Starten Sie danach den TextPad.
+
+ACHTUNG: Auf den Rechnern im SWE-Labor werden zwei verschiedene Laufwerke C:
+angezeigt. Sie muessen das Laufwerk "C: lokales Laufwerk" waehlen. Dieses
+Laufwerk liegt auf dem Server, auf dem Sie arbeiten (nicht auf dem Rechner,
+vor dem Sie sitzen).
+
+
+Makros in das Makros-Menu des TextPad aufnehmen
+-----------------------------------------------
+Die beiden .tpm-Dateien enthalten zwei TextPad-Makros. Mit den folgenden
+Schritten bewirken Sie, dass diese Makros im Makros-Menue des TextPad erscheinen
+und dort aufgerufen werden können.
+1. Klicken Sie im Menu "Konfiguration" auf "Einstellungen" und dann auf
+   "Makros"
+2. Im Unterfenster "Verfügbare Makros" sollte unter anderem der Makro-
+   Name "C-Comment" stehen. Waehlen Sie Ihn und klicken Sie auf
+   "Hinzufügen>>". Ebenso mit "C-Uncomment".
+3. Klicken Sie auf "Übernehmen" und auf "OK"
+
+Danach sollten die beiden Makros im Makros-Menue erscheinen. Bevor Sie das
+Makro "C-Comment" aufrufen, sollten Sie ein paar Textzeilen (z.B. mit der Maus)
+auswaehlen. Diese Zeilen werden dann zu Kommentaren der Sprache C (und der
+Sprache Gentle) gemacht. Bevor Sie "C-Uncomment" aufrufen, sollten Sie ein paar
+auskommentierte Zeilen auswaehlen.
+
+
+Im TextPad eine Dokumentenklasse fuer Gentle-Programme erstellen
+----------------------------------------------------------------
+1. Klicken Sie im Menue "Konfiguration" auf "Neue Dokumentenklasse..."
+2. Geben Sie nach "Name der Dokumentenklasse" z.B. den Namen
+   "Gentle-Quellen" ein.
+   Klicken Sie auf "Weiter".
+3. Geben Sie nach "Elemente der Klasse" den Ausdruck  *.g  ein.
+   Klicken Sie auf "Weiter"
+4. Klicken Sie die Option "Syntax-Hervorhebung einschalten" an und
+   waehlen Sie unter "Syntax-Definitionsdatei" die Datei "gentle.syn" aus.
+   Klicken Sie auf "Weiter"
+5. Klicken Sie auf "Fertig stellen"
+
+HINWEIS: Die Syntax-Hervorhebung wird nur fuer Dateien wirksam, die Sie
+NACH diesen fuenf Schritten oeffnen (bereits geoeffnete Gentle-Dateien
+bleiben schwarz-weiss).
+
+
+Textbausteine in ein Quellprogramm einfuegen
+--------------------------------------------
+1. Oeffnen Sie ein Textbaustein-Fenster (am linken Rand des TextPads)
+   indem Sie EINMAL oder ZWEIMAL die Tastenkombination Strg-F3 eingeben.
+2. Falls das Textbaustein-Fenster nicht "Gentle" heisst (sondern z.B.
+   "ANSI Characters" oder "Control characters" oder "HTML Tags" etc)
+   links-klicken Sie auf den Namen des Fenster und waehlen Sie "Gentle"
+   aus.
+3. Wenn Sie auf einen der Textbausteine (z.B. "Mehrzeilenkommentar-Minus")
+   doppelklicken, wird der Baustein in die aktuell bearbeitete Datei
+   einfgefuegt (an der Stelle, an der der Cursor steht).

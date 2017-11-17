@@ -1,0 +1,13 @@
+// File t01, source program (with errors) // line  1
+// for parser in folder alg10             // line  2
+                                          // line  3
+prog                                      // line  4
+   bert,                                  // line  5
+                                          // line  6
+   bert,      // double declaration       // line  7
+   karl,                                  // line  8
+   bert       // double declaration       // line  9
+begin                                     // line 10
+   bert,                                  // line 11
+   carl, bert // carl is undeclared       // line 12
+end                                       // line 13

@@ -1,0 +1,86 @@
+Testfile1
+-----------------------------
+SRC mother
+mo()
+-----------------------------
+SRC father
+fa()
+-----------------------------
+SRC grandmother
+g(
+   mo()
+)
+-----------------------------
+SRC grandfather
+g(
+   fa()
+)
+-----------------------------
+SRC greatgrandmother
+g(
+   g(
+      mo()
+   )
+)
+-----------------------------
+SRC greatgrandfather
+g(
+   g(
+      fa()
+   )
+)
+-----------------------------
+SRC greatgreatgrandmother
+g(
+   g(
+      g(
+         mo()
+      )
+   )
+)
+-----------------------------
+SRC greatgreatgrandfather
+g(
+   g(
+      g(
+         fa()
+      )
+   )
+)
+-----------------------------
+SRC greatgreatgreatgrandfather
+g(
+   g(
+      g(
+         g(
+            fa()
+         )
+      )
+   )
+)
+-----------------------------
+SRC greatgreatgreatgrandfather
+g(
+   g(
+      g(
+         g(
+            fa()
+         )
+      )
+   )
+)
+-----------------------------
+SRC Mother
+    Mother
+    ^
+ALG.TMP, line 1: syntax error
+-----------------------------
+SRC fatheR
+    fatheR
+    ^
+ALG.TMP, line 1: syntax error
+-----------------------------
+SRC greatgreatgreatfather
+    greatgreatgreatfather
+                   ^
+ALG.TMP, line 1: syntax error

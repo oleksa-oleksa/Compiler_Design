@@ -1,0 +1,65 @@
+Testfile2
+-----------------  
+SRC prog end
+
+Nr of errors found by check10: 0
+-----------------  
+SRC prog dec anna end
+
+Nr of errors found by check10: 0
+-----------------  
+SRC prog dec anna, stm anna end
+
+Nr of errors found by check10: 0
+-----------------  
+SRC prog dec anna, dec bert, dec carl end
+
+Nr of errors found by check10: 0
+-----------------  
+SRC prog dec anna, dec bert, dec carl, stm carl, stm carl, stm anna end
+
+Nr of errors found by check10: 0
+-----------------  
+SRC prog dec anna, dec anna end
+Double declaration:   anna is declared at line 1 and 1
+
+Nr of errors found by check10: 1
+-----------------  
+SRC prog dec anna, dec anna, stm anna end
+Double declaration:   anna is declared at line 1 and 1
+
+Nr of errors found by check10: 1
+-----------------  
+SRC prog dec anna, dec bert, dec anna, stm anna, stm anna end
+Double declaration:   anna is declared at line 1 and 1
+
+Nr of errors found by check10: 1
+-----------------  
+SRC prog dec anna, dec bert, dec anna, dec bert end
+Double declaration:   anna is declared at line 1 and 1
+Double declaration:   bert is declared at line 1 and 1
+
+Nr of errors found by check10: 2
+-----------------  
+SRC prog dec anna, dec anna, dec anna, dec anna end
+Double declaration:   anna is declared at line 1 and 1
+Double declaration:   anna is declared at line 1 and 1
+Double declaration:   anna is declared at line 1 and 1
+
+Nr of errors found by check10: 3
+-----------------  
+SRC prog dec anna, stm bert end
+Undeclared variable:  bert at line 1 is not declared
+
+Nr of errors found by check10: 1
+-----------------  
+SRC prog dec anna, dec bert, stm bert, stm carl, end
+Undeclared variable:  carl at line 1 is not declared
+
+Nr of errors found by check10: 1
+-----------------  
+SRC prog dec anna, dec bert, stm carl, stm bert, stm carl end
+Undeclared variable:  carl at line 1 is not declared
+Undeclared variable:  carl at line 1 is not declared
+
+Nr of errors found by check10: 2

@@ -1,0 +1,56 @@
+Testfile1
+-----------------------------
+SRC mother 
+1
+No parse error!
+-----------------------------
+SRC father 
+1
+No parse error!
+-----------------------------
+SRC grandmother 
+2
+No parse error!
+-----------------------------
+SRC grandfather 
+2
+No parse error!
+-----------------------------
+SRC greatgrandmother 
+3
+No parse error!
+-----------------------------
+SRC greatgrandfather 
+3
+No parse error!
+-----------------------------
+SRC greatgreatgrandmother 
+4
+No parse error!
+-----------------------------
+SRC greatgreatgrandfather 
+4
+No parse error!
+-----------------------------
+SRC greatgreatgreatgrandfather 
+5
+No parse error!
+-----------------------------
+SRC greatgreatgreatgrandfather 
+5
+No parse error!
+-----------------------------
+SRC Mother 
+    Mother
+    ^
+ALG.TMP, line 1: syntax error
+-----------------------------
+SRC fatheR 
+    fatheR
+    ^
+ALG.TMP, line 1: syntax error
+-----------------------------
+SRC greatgreatgreatfather 
+    greatgreatgreatfather
+                   ^
+ALG.TMP, line 1: syntax error

@@ -1,0 +1,8 @@
+// File t02, source program (without errors) for parser in folder alg10
+prog
+   bert,
+   karl
+begin
+   bert,
+   bert
+end

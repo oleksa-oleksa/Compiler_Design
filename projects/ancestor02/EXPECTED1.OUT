@@ -1,0 +1,46 @@
+Testfile1
+-----------------------------
+SRC mother
+1
+-----------------------------
+SRC father
+1
+-----------------------------
+SRC grandmother
+2
+-----------------------------
+SRC grandfather
+2
+-----------------------------
+SRC greatgrandmother
+3
+-----------------------------
+SRC greatgrandfather
+3
+-----------------------------
+SRC greatgreatgrandmother
+4
+-----------------------------
+SRC greatgreatgrandfather
+4
+-----------------------------
+SRC greatgreatgreatgrandfather
+5
+-----------------------------
+SRC greatgreatgreatgrandfather
+5
+-----------------------------
+SRC Mother
+    Mother
+    ^
+ALG.TMP, line 1: syntax error
+-----------------------------
+SRC fatheR
+    fatheR
+    ^
+ALG.TMP, line 1: syntax error
+-----------------------------
+SRC greatgreatgreatfather
+    greatgreatgreatfather
+                   ^
+ALG.TMP, line 1: syntax error

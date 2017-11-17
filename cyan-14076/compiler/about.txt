@@ -1,0 +1,29 @@
+
+  cyan-14076
+
+
+  Cyan is a compiler toolkit that generates
+  complete language processors in Java.
+  It is based on Gentle (gentle.compilertools.net)
+  and Accent (accent.compilertools.net).
+
+  For documentation see cyan.compilertools.net.
+
+  Go to directory 'example' for a first example.
+  On Unix run 'generate.sh' to generate a language processor,
+  run 'execute.sh' to execute the generated program.
+  On Windows run 'generate.bat' and 'execute.bat'.
+
+  You may freely use Cyan for your projects,
+  but you may not redistribute it.
+  You may distribute programs you generated with Cyan,
+  you may include the Cyan runtime.
+
+  THIS PROGRAM IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+  BUT WITHOUT ANY WARRANTY; WITHOUT EVEN THE IMPLIED WARRANTY OF
+  MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. 
+
+  COPYRIGHT (C) 2000-2014 COMPILERTOOLS.NET, ALL RIGHTS RESERVED.
+
+  support@compilertools.net
+

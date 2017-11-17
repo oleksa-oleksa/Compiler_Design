@@ -1,0 +1,83 @@
+Oleksandra Baga
+
+======================
+
+S :                 "begin" X "end"
+X :                 "middle"
+
+X :                 "dec-a" ";" B C
+X :                 "dec-b" ";" A C
+X :                 "dec-c" ";" A B
+
+=======================
+
+// Case: One variable declaration
+
+"dec-a" ";" B C :   "dec-a" ";" "middle" A_use
+"dec-b" ";" A C :   "dec-b" ";" "middle" B_use
+"dec-c" ";" A B :   "dec-c" ";" "middle" C_use
+
+A_use :             "app-a" ";" A_use
+A_use :             Epsilon
+
+B_use :             "app-b" ";" B_use
+B_use :             Epsilon
+
+C_use :             "app-c" ";" C_use
+C_use :             Epsilon
+
+=======================
+
+// Case: Two variables declaration
+
+"dec-a" ";" B :     "dec-a" ";" "dec-b" AB_middle
+"dec-a" ";" B :     "dec-a" ";" "dec-c" AC_middle
+
+"dec-b" ";" A :     "dec-b" ";" "dec-a" AB_middle
+"dec-b" ";" A :     "dec-b" ";" "dec-c" BC_middle
+
+"dec-c" ";" A :     "dec-c" ";" "dec-a" AC_middle
+"dec-c" ";" A :     "dec-c" ";" "dec-b" BC_middle
+
+AB_middle:                 "middle" AB_use
+AC_middle:                 "middle" AC_use
+BC_middle:                 "middle" BC_use
+
+// a and b are declared 
+
+AB_use :             A_use AB_use
+AB_use :             B_use AB_use
+AB_use :             Epsilon
+
+// a and c are declared 
+
+AC_use :             A_use AC_use
+AC_use :             C_use AC_use
+AC_use :             Epsilon
+
+// b and c are declared
+
+BC_use :             B_use BC_use
+BC_use :             C_use BC_use
+BC_use :             Epsilon
+
+=============================
+
+// Case: Three variables declaration
+
+B C :               "dec-b" "dec-c" ABC_middle
+B C :               "dec-c" "dec-b" ABC_middle
+
+A C :               "dec-a" "dec-c" ABC_middle
+A C :               "dec-b" "dec-c" ABC_middle
+
+A B :               "dec-a" "dec-b" ABC_middle
+A B :               "dec-b" "dec-a" ABC_middle
+
+ABC_middle :        "middle" ABC_use
+ABC_use :           A_use ABC_use
+ABC_use :           B_use ABC_use
+ABC_use :           C_use ABC_use
+ABC_use :           Epsilon
+
+

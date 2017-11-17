@@ -1,0 +1,2 @@
+// Error: Operands of a comparison are of different types
+    writeln("123"!= true );

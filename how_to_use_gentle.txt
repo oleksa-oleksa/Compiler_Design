@@ -1,0 +1,22 @@
+1. Write grammatic:
+
+java -cp ../compiler Gentle spec.g
+to generate a language processor (or run the script generate.sh)
+
+Wenn das aktuelle Arbeitsverzeichnis ein Projektord- ner ist, der die Gentle-Quelldatei spec.g und die Eingabedaten-Datei t01 enthät, dann haben die folgenden Aufrufe die folgenden Wirkungen:
+> ..\gen.sh spec.g
+
+Aus der Datei spec.g wird mit dem Gentle-Compiler ein Java-Programm generiert.
+> ..\exe.sh t01
+Das zuletzt generierte Java-Programm wird ausgeführt und auf die Datei t01 angewendet.
+
+
+2. Write expression
+java -cp .:../runtime Generated.Program test.in
+to execute the generated program (or run the script execute.sh)
+
+In project folder:
+a.sh
+--> Ruft das Gentile System auf und erzeugt den Compiler
+sh b.sh
+--> Testet Ihren Compiler.
