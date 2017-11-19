@@ -1,0 +1,19 @@
+ancestor01: Write a (context-free, type 2) grammar for the ancestor language A1:
+
+A1 = {mother, father, grandmother, grandfather, greatgrandmother, greatgrandfather, greatgreatgrandmother, ..., greatgreatgreatgreatgreatgrandfather, ...}
+
+==================
+
+Solution:
+
+R01: 	A	: X
+R01:	A	: Y
+R03:	A	: Z
+
+R04:	X	: "mother"
+R05:	X	: "father"
+
+R06:	Y	: "grand" X
+
+R07:	Z	: "great" Y
+R08: 	Z	: "great" Z

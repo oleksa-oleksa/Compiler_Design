@@ -1,0 +1,52 @@
+R01: Ziff0Bis4: "0"
+R02: Ziff0Bis4: Ziff1Bis4
+
+R03: Ziff0Bis5: Ziff0Bis4
+R04: Ziff0Bis5: "5"
+
+R05: Ziff0Bis9: "0"
+R06: Ziff0Bis9: Ziff1Bis9
+
+R07: Ziff1Bis4: "1"
+R08: Ziff1Bis4: "2"
+R09: Ziff1Bis4: "3"
+R10: Ziff1Bis4: "4"
+
+R11: Ziff1Bis9: Ziff1Bis4
+R12: Ziff1Bis9: "5"
+R13: Ziff1Bis9: "6"
+R14: Ziff1Bis9: "7"
+R15: Ziff1Bis9: "8"
+R16: Ziff1Bis9: "9"
+
+=============================
+Task:
+FS1: Die Dezimalzahlen von 0 bis 99	(Startsymbol: Zahlen0Bis99)
+FS2: Die Dezimalzahlen von 0 bis 100	(Startsymbol: Zahlen0Bis100)
+FS3: Die Dezimalzahlen von 0 bis 299	(Startsymbol: Zahlen0Bis299)
+FS4: Die Dezimalzahlen von 0 bis 255	(Startsymbol: Zahlen0Bis255)
+
+=============================
+Solution FS1:
+
+R17: Zahlen0Bis99: Ziff0Bis9
+R18: Zahlen0Bis99: Ziff1Bis9 Ziff0Bis9
+
+============================
+Solution FS2
+R19: Zahlen0Bis100: Zahlen0Bis99
+R20: Zahlen0Bis100: "100"
+
+============================
+Solution FS3
+R21: Zahlen0Bis299: Zahlen0Bis99
+R22 : Zahlen0Bis299: "1" Ziff0Bis9 Ziff0Bis9
+R23 : Zahlen0Bis299: "2" Ziff0Bis9 Ziff0Bis9
+
+============================
+Solution FS4
+R25: Zahlen0Bis255: Zahlen0Bis99
+R26: Zahlen0Bis255: "1" Ziff0Bis9 Ziff0Bis9
+R27: Zahlen0Bis255: "2" Ziff0Bis4 Ziff0Bis9
+R28: Zahlen0Bis255: "25" Ziff0Bis5
+
