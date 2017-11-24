@@ -62,13 +62,13 @@ root
    tst_length            (LIST2,   7)
    tst_length            (int[],   0)
 
-   tst_sum               (LIST1,   6)
-   tst_sum               (LIST2,  -4)
-   tst_sum               (int[],   0)
-
-   tst_nrOfPosElems      (LIST1,   3)
-   tst_nrOfPosElems      (LIST2,   3)
-   tst_nrOfPosElems      (int[],   0)
+//    tst_sum               (LIST1,   6)
+//    tst_sum               (LIST2,  -4)
+//    tst_sum               (int[],   0)
+//
+//    tst_nrOfPosElems      (LIST1,   3)
+//    tst_nrOfPosElems      (LIST2,   3)
+//    tst_nrOfPosElems      (int[],   0)
 //
 //    tst_nrOfNegElems      (LIST1,   3)
 //    tst_nrOfNegElems      (LIST2,   4)
@@ -185,29 +185,19 @@ root
 // --------------------------------------------------------------------- 1
 proc length(list:int[] -> length:int)
    // Computes the length of list.
-   rule length(int[] -> 0):
-   rule length(int[E::R] -> L + 1) : length (R -> L)
 
+   rule length(L -> -999):
 // --------------------------------------------------------------------- 2
 proc sum(list:int[] -> sum:int)
    // Computes the sum of the elements of list.
-   rule sum(int[] -> 0):
-   rule sum(int[E::R] -> L + E) : sum (R -> L)
 
+   rule sum(L -> -999):
 // --------------------------------------------------------------------- 3
 proc nrOfPosElems(list:int[] -> nr:int)
    // Computes the number of positive elemenst in list.
    // Remember: 0 is not positive.
-   rule nrOfPosElems(int[] -> 0):
-   rule nrOfPosElems(int[E::R] -> L + n) : 
-				isPositive(E -> n)
-				nrOfPosElems(R -> L)
 
-proc isPositive(int -> int)
-   rule isPositive( 1 -> (n > 0)) :
-   		//	Greater(n, 0) // if positive 
-   rule isPositive (n <= 0 -> 0)
-		//	Greater(0, n) // if negaive - 0 returns to be summed
+   rule nrOfPosElems(L -> -999):
 // --------------------------------------------------------------------- 4
 proc nrOfNegElems(list:int[] -> nr:int)
    // Computes the number of negative elements in list.
