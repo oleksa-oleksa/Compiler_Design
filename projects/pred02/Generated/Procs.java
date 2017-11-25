@@ -356,6 +356,20 @@ NodeFactory.NewNode (
 new JavaIntValue(0)
 );
 Procs.
+tst_isOdd
+(
+new JavaIntValue(3)
+,
+new JavaStringValue( "succ" )
+);
+Procs.
+tst_isOdd
+(
+new JavaIntValue(6)
+,
+new JavaStringValue( "fail" )
+);
+Procs.
 tst_isEven
 (
 new JavaIntValue(6)
@@ -369,14 +383,60 @@ new JavaIntValue(3)
 ,
 new JavaStringValue( "fail" )
 );
-if (! JavaLib.rtsTestDefined(NrOfTests,"/line,offset,length,file=/ 176 7301 9 prob01.g"))
+Procs.
+tst_nrOfEvenElems
+(
+LIST1
+,
+new JavaIntValue(1)
+);
+Procs.
+tst_nrOfEvenElems
+(
+LIST2
+,
+new JavaIntValue(3)
+);
+Procs.
+tst_nrOfEvenElems
+(
+NodeFactory.NewNode (
+"NilOf-int"
+,  new JavaNode [] {})
+,
+new JavaIntValue(0)
+);
+Procs.
+tst_nrOfOddElems
+(
+LIST1
+,
+new JavaIntValue(6)
+);
+Procs.
+tst_nrOfOddElems
+(
+LIST2
+,
+new JavaIntValue(4)
+);
+Procs.
+tst_nrOfOddElems
+(
+NodeFactory.NewNode (
+"NilOf-int"
+,  new JavaNode [] {})
+,
+new JavaIntValue(0)
+);
+if (! JavaLib.rtsTestDefined(NrOfTests,"/line,offset,length,file=/ 176 7275 9 prob01.g"))
 if (javadummy) break CONDITION2;
 {
 JavaNode current0 = NrOfTests;
 //assign current0 to T --- JJ.M4
 T = current0 ;
 };
-if (! JavaLib.rtsTestDefined(NrOfFailures,"/line,offset,length,file=/ 177 7328 12 prob01.g"))
+if (! JavaLib.rtsTestDefined(NrOfFailures,"/line,offset,length,file=/ 177 7302 12 prob01.g"))
 if (javadummy) break CONDITION2;
 {
 JavaNode current0 = NrOfFailures;
@@ -1427,6 +1487,10 @@ isEven(
 JavaNode yy_inparam_0
 )
 {
+// DECLARE for proc k
+JavaNode k = null;
+// DECLARE for proc n
+JavaNode n = null;
 CONDITION45:
 while(javadummy) {
 // ***** begin condlist 46 (in cond 45) *****
@@ -1436,39 +1500,35 @@ CONDITION47: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
-//JJ.M6
-if (! JavaIntValue.MatchesInt(current0,0))
+//assign current0 to n --- JJ.M4
+n = current0 ;
+};
+Procs.
+mod
+(
+n
+,
+new JavaIntValue(2)
+);
+{
+JavaNode current0 = 
+ JavaLib.yyoutvalue1;
+//assign current0 to k --- JJ.M4
+k = current0 ;
+}
+{
+if (! JavaLib.rtsEqualInt(
+k
+,
+new JavaIntValue(0)
+)
+)
    if (javadummy) break  CONDITION47;
 };
 // $$$$$$$$ java success: this alternative matched 
 if (javadummy) break CONDLIST46;
 // $$$$$$$$ 
 } // CONDITION47 // @@@ end of alternative
-CONDITION48: // @@@ begin of alternative
-while(javadummy) {
-// DECLARE for alternative n
-JavaNode n= null;
-{
-JavaNode current0 = yy_inparam_0;
-//assign current0 to n --- JJ.M4
-n = current0 ;
-};
-if (! 
-Procs.
-isEven
-(
-JavaLib.Minus(
-n
-,
-new JavaIntValue(2)
-)
-)
-)
-if (javadummy) break CONDITION48;
-// $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST46;
-// $$$$$$$$ 
-} // CONDITION48 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
 // *** ESCAPE *** CondListIndex=46 N=45
 if (javadummy) break CONDITION45;
@@ -1485,47 +1545,220 @@ return false;
 
 public
 static
+void
+mod(
+
+JavaNode yy_inparam_0
+,
+
+JavaNode yy_inparam_1
+)
+{
+JavaNode yy_outparam_0 = null;
+// DECLARE for proc b
+JavaNode b = null;
+// DECLARE for proc a
+JavaNode a = null;
+CONDITION48:
+while(javadummy) {
+// ***** begin condlist 49 (in cond 48) *****
+CONDLIST49: // @@@ begin of alternative group
+while(javadummy) {
+CONDITION50: // @@@ begin of alternative
+while(javadummy) {
+// DECLARE for alternative k
+JavaNode k= null;
+{
+JavaNode current0 = yy_inparam_0;
+//assign current0 to a --- JJ.M4
+a = current0 ;
+};
+{
+JavaNode current0 = yy_inparam_1;
+//assign current0 to b --- JJ.M4
+b = current0 ;
+};
+{
+if (! JavaLib.rtsLessInt(
+a
+,
+new JavaIntValue(0)
+)
+)
+   if (javadummy) break  CONDITION50;
+};
+{
+if (! JavaLib.rtsGreaterOrEqualInt(
+b
+,
+a
+)
+)
+   if (javadummy) break  CONDITION50;
+};
+Procs.
+mod
+(
+JavaLib.Plus(
+a
+,
+b
+)
+,
+b
+);
+{
+JavaNode current0 = 
+ JavaLib.yyoutvalue1;
+//assign current0 to k --- JJ.M4
+k = current0 ;
+}
+yy_outparam_0 = 
+k
+;
+// $$$$$$$$ java success: this alternative matched 
+if (javadummy) break CONDLIST49;
+// $$$$$$$$ 
+} // CONDITION50 // @@@ end of alternative
+CONDITION51: // @@@ begin of alternative
+while(javadummy) {
+// DECLARE for alternative k
+JavaNode k= null;
+{
+JavaNode current0 = yy_inparam_0;
+//assign current0 to a --- JJ.M4
+a = current0 ;
+};
+{
+JavaNode current0 = yy_inparam_1;
+//assign current0 to b --- JJ.M4
+b = current0 ;
+};
+{
+if (! JavaLib.rtsGreaterOrEqualInt(
+a
+,
+b
+)
+)
+   if (javadummy) break  CONDITION51;
+};
+Procs.
+mod
+(
+JavaLib.Minus(
+a
+,
+b
+)
+,
+b
+);
+{
+JavaNode current0 = 
+ JavaLib.yyoutvalue1;
+//assign current0 to k --- JJ.M4
+k = current0 ;
+}
+yy_outparam_0 = 
+k
+;
+// $$$$$$$$ java success: this alternative matched 
+if (javadummy) break CONDLIST49;
+// $$$$$$$$ 
+} // CONDITION51 // @@@ end of alternative
+CONDITION52: // @@@ begin of alternative
+while(javadummy) {
+{
+JavaNode current0 = yy_inparam_0;
+//assign current0 to a --- JJ.M4
+a = current0 ;
+};
+{
+JavaNode current0 = yy_inparam_1;
+//assign current0 to b --- JJ.M4
+b = current0 ;
+};
+yy_outparam_0 = 
+a
+;
+// $$$$$$$$ java success: this alternative matched 
+if (javadummy) break CONDLIST49;
+// $$$$$$$$ 
+} // CONDITION52 // @@@ end of alternative
+// $$$$$$$$ java failure: no alternative matched $$$$
+// *** ESCAPE *** CondListIndex=49 N=48
+if (javadummy) break CONDITION48;
+} // CONDLIST49 @@@ end of alternative group
+// *** CONTINUE ***
+// succeeded:
+JavaLib.yyoutvalue1 = yy_outparam_0;
+if (javadummy) return;
+} // CONDITION48
+// failed:
+JavaLib.rtsAllAlternativesFailed("mod");
+}
+
+
+
+public
+static
 boolean
 isOdd(
 
 JavaNode yy_inparam_0
 )
 {
+// DECLARE for proc k
+JavaNode k = null;
 // DECLARE for proc n
 JavaNode n = null;
-CONDITION49:
+CONDITION53:
 while(javadummy) {
-// ***** begin condlist 50 (in cond 49) *****
-CONDLIST50: // @@@ begin of alternative group
+// ***** begin condlist 54 (in cond 53) *****
+CONDLIST54: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION51: // @@@ begin of alternative
+CONDITION55: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
 //assign current0 to n --- JJ.M4
 n = current0 ;
 };
-{
-if (! JavaLib.rtsGreaterInt(
+Procs.
+mod
+(
 n
+,
+new JavaIntValue(2)
+);
+{
+JavaNode current0 = 
+ JavaLib.yyoutvalue1;
+//assign current0 to k --- JJ.M4
+k = current0 ;
+}
+{
+if (! JavaLib.rtsEqualInt(
+k
 ,
 new JavaIntValue(1)
 )
 )
-   if (javadummy) break  CONDITION51;
+   if (javadummy) break  CONDITION55;
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST50;
+if (javadummy) break CONDLIST54;
 // $$$$$$$$ 
-} // CONDITION51 // @@@ end of alternative
+} // CONDITION55 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=50 N=49
-if (javadummy) break CONDITION49;
-} // CONDLIST50 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=54 N=53
+if (javadummy) break CONDITION53;
+} // CONDLIST54 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 return true;
-} // CONDITION49
+} // CONDITION53
 // failed:
 return false;
 }
@@ -1541,38 +1774,141 @@ JavaNode yy_inparam_0
 )
 {
 JavaNode yy_outparam_0 = null;
-// DECLARE for proc L
-JavaNode L = null;
-CONDITION52:
+CONDITION56:
 while(javadummy) {
-// ***** begin condlist 53 (in cond 52) *****
-CONDLIST53: // @@@ begin of alternative group
+// ***** begin condlist 57 (in cond 56) *****
+CONDLIST57: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION54: // @@@ begin of alternative
+CONDITION58: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
-//assign current0 to L --- JJ.M4
-L = current0 ;
+if (current0.Name
+!= "NilOf-int")
+if (javadummy) break CONDITION58;
 };
 yy_outparam_0 = 
-JavaLib.UnaryMinus(
-new JavaIntValue(999)
+new JavaIntValue(0)
+;
+// $$$$$$$$ java success: this alternative matched 
+if (javadummy) break CONDLIST57;
+// $$$$$$$$ 
+} // CONDITION58 // @@@ end of alternative
+CONDITION59: // @@@ begin of alternative
+while(javadummy) {
+// DECLARE for alternative L
+JavaNode L= null;
+// DECLARE for alternative T
+JavaNode T= null;
+// DECLARE for alternative H
+JavaNode H= null;
+{
+JavaNode current0 = yy_inparam_0;
+if (current0.Name
+!= "SeqOf-int")
+if (javadummy) break CONDITION59;
+{ //(( children level 1
+JavaNode current1 =
+   current0 .Child1[0];
+//assign current1 to H --- JJ.M4
+H = current1 ;
+current1 = current0.Child1[1];
+//assign current1 to T --- JJ.M4
+T = current1 ;
+} //)) children level 1
+};
+if (! 
+Procs.
+isEven
+(
+H
+)
+)
+if (javadummy) break CONDITION59;
+Procs.
+nrOfEvenElems
+(
+T
+);
+{
+JavaNode current0 = 
+ JavaLib.yyoutvalue1;
+//assign current0 to L --- JJ.M4
+L = current0 ;
+}
+yy_outparam_0 = 
+JavaLib.Plus(
+L
+,
+new JavaIntValue(1)
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST53;
+if (javadummy) break CONDLIST57;
 // $$$$$$$$ 
-} // CONDITION54 // @@@ end of alternative
+} // CONDITION59 // @@@ end of alternative
+CONDITION60: // @@@ begin of alternative
+while(javadummy) {
+// DECLARE for alternative L
+JavaNode L= null;
+// DECLARE for alternative T
+JavaNode T= null;
+// DECLARE for alternative H
+JavaNode H= null;
+{
+JavaNode current0 = yy_inparam_0;
+if (current0.Name
+!= "SeqOf-int")
+if (javadummy) break CONDITION60;
+{ //(( children level 1
+JavaNode current1 =
+   current0 .Child1[0];
+//assign current1 to H --- JJ.M4
+H = current1 ;
+current1 = current0.Child1[1];
+//assign current1 to T --- JJ.M4
+T = current1 ;
+} //)) children level 1
+};
+if (! 
+Procs.
+isOdd
+(
+H
+)
+)
+if (javadummy) break CONDITION60;
+Procs.
+nrOfEvenElems
+(
+T
+);
+{
+JavaNode current0 = 
+ JavaLib.yyoutvalue1;
+//assign current0 to L --- JJ.M4
+L = current0 ;
+}
+yy_outparam_0 = 
+JavaLib.Plus(
+L
+,
+new JavaIntValue(0)
+)
+;
+// $$$$$$$$ java success: this alternative matched 
+if (javadummy) break CONDLIST57;
+// $$$$$$$$ 
+} // CONDITION60 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=53 N=52
-if (javadummy) break CONDITION52;
-} // CONDLIST53 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=57 N=56
+if (javadummy) break CONDITION56;
+} // CONDLIST57 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION52
+} // CONDITION56
 // failed:
 JavaLib.rtsAllAlternativesFailed("nrOfEvenElems");
 }
@@ -1588,38 +1924,133 @@ JavaNode yy_inparam_0
 )
 {
 JavaNode yy_outparam_0 = null;
-// DECLARE for proc L
-JavaNode L = null;
-CONDITION55:
+CONDITION61:
 while(javadummy) {
-// ***** begin condlist 56 (in cond 55) *****
-CONDLIST56: // @@@ begin of alternative group
+// ***** begin condlist 62 (in cond 61) *****
+CONDLIST62: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION57: // @@@ begin of alternative
+CONDITION63: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
-//assign current0 to L --- JJ.M4
-L = current0 ;
+if (current0.Name
+!= "NilOf-int")
+if (javadummy) break CONDITION63;
 };
 yy_outparam_0 = 
-JavaLib.UnaryMinus(
-new JavaIntValue(999)
+new JavaIntValue(0)
+;
+// $$$$$$$$ java success: this alternative matched 
+if (javadummy) break CONDLIST62;
+// $$$$$$$$ 
+} // CONDITION63 // @@@ end of alternative
+CONDITION64: // @@@ begin of alternative
+while(javadummy) {
+// DECLARE for alternative L
+JavaNode L= null;
+// DECLARE for alternative T
+JavaNode T= null;
+// DECLARE for alternative H
+JavaNode H= null;
+{
+JavaNode current0 = yy_inparam_0;
+if (current0.Name
+!= "SeqOf-int")
+if (javadummy) break CONDITION64;
+{ //(( children level 1
+JavaNode current1 =
+   current0 .Child1[0];
+//assign current1 to H --- JJ.M4
+H = current1 ;
+current1 = current0.Child1[1];
+//assign current1 to T --- JJ.M4
+T = current1 ;
+} //)) children level 1
+};
+if (! 
+Procs.
+isOdd
+(
+H
+)
+)
+if (javadummy) break CONDITION64;
+Procs.
+nrOfOddElems
+(
+T
+);
+{
+JavaNode current0 = 
+ JavaLib.yyoutvalue1;
+//assign current0 to L --- JJ.M4
+L = current0 ;
+}
+yy_outparam_0 = 
+JavaLib.Plus(
+L
+,
+new JavaIntValue(1)
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST56;
+if (javadummy) break CONDLIST62;
 // $$$$$$$$ 
-} // CONDITION57 // @@@ end of alternative
+} // CONDITION64 // @@@ end of alternative
+CONDITION65: // @@@ begin of alternative
+while(javadummy) {
+// DECLARE for alternative L
+JavaNode L= null;
+// DECLARE for alternative T
+JavaNode T= null;
+// DECLARE for alternative H
+JavaNode H= null;
+{
+JavaNode current0 = yy_inparam_0;
+if (current0.Name
+!= "SeqOf-int")
+if (javadummy) break CONDITION65;
+{ //(( children level 1
+JavaNode current1 =
+   current0 .Child1[0];
+//assign current1 to H --- JJ.M4
+H = current1 ;
+current1 = current0.Child1[1];
+//assign current1 to T --- JJ.M4
+T = current1 ;
+} //)) children level 1
+};
+Procs.
+nrOfOddElems
+(
+T
+);
+{
+JavaNode current0 = 
+ JavaLib.yyoutvalue1;
+//assign current0 to L --- JJ.M4
+L = current0 ;
+}
+yy_outparam_0 = 
+JavaLib.Plus(
+L
+,
+new JavaIntValue(0)
+)
+;
+// $$$$$$$$ java success: this alternative matched 
+if (javadummy) break CONDLIST62;
+// $$$$$$$$ 
+} // CONDITION65 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=56 N=55
-if (javadummy) break CONDITION55;
-} // CONDLIST56 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=62 N=61
+if (javadummy) break CONDITION61;
+} // CONDLIST62 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION55
+} // CONDITION61
 // failed:
 JavaLib.rtsAllAlternativesFailed("nrOfOddElems");
 }
@@ -1638,12 +2069,12 @@ JavaNode yy_outparam_0 = null;
 JavaNode yy_outparam_1 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION58:
+CONDITION66:
 while(javadummy) {
-// ***** begin condlist 59 (in cond 58) *****
-CONDLIST59: // @@@ begin of alternative group
+// ***** begin condlist 67 (in cond 66) *****
+CONDLIST67: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION60: // @@@ begin of alternative
+CONDITION68: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -1661,19 +2092,19 @@ new JavaIntValue(999)
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST59;
+if (javadummy) break CONDLIST67;
 // $$$$$$$$ 
-} // CONDITION60 // @@@ end of alternative
+} // CONDITION68 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=59 N=58
-if (javadummy) break CONDITION58;
-} // CONDLIST59 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=67 N=66
+if (javadummy) break CONDITION66;
+} // CONDLIST67 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 JavaLib.yyoutvalue2 = yy_outparam_1;
 if (javadummy) return;
-} // CONDITION58
+} // CONDITION66
 // failed:
 JavaLib.rtsAllAlternativesFailed("nrsOfPosNegElems");
 }
@@ -1692,12 +2123,12 @@ JavaNode yy_outparam_0 = null;
 JavaNode yy_outparam_1 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION61:
+CONDITION69:
 while(javadummy) {
-// ***** begin condlist 62 (in cond 61) *****
-CONDLIST62: // @@@ begin of alternative group
+// ***** begin condlist 70 (in cond 69) *****
+CONDLIST70: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION63: // @@@ begin of alternative
+CONDITION71: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -1715,19 +2146,19 @@ new JavaIntValue(999)
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST62;
+if (javadummy) break CONDLIST70;
 // $$$$$$$$ 
-} // CONDITION63 // @@@ end of alternative
+} // CONDITION71 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=62 N=61
-if (javadummy) break CONDITION61;
-} // CONDLIST62 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=70 N=69
+if (javadummy) break CONDITION69;
+} // CONDLIST70 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 JavaLib.yyoutvalue2 = yy_outparam_1;
 if (javadummy) return;
-} // CONDITION61
+} // CONDITION69
 // failed:
 JavaLib.rtsAllAlternativesFailed("nrsOfNegEvenElems");
 }
@@ -1745,12 +2176,12 @@ JavaNode yy_inparam_0
 JavaNode yy_outparam_0 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION64:
+CONDITION72:
 while(javadummy) {
-// ***** begin condlist 65 (in cond 64) *****
-CONDLIST65: // @@@ begin of alternative group
+// ***** begin condlist 73 (in cond 72) *****
+CONDLIST73: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION66: // @@@ begin of alternative
+CONDITION74: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -1772,18 +2203,18 @@ NodeFactory.NewNode (
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST65;
+if (javadummy) break CONDLIST73;
 // $$$$$$$$ 
-} // CONDITION66 // @@@ end of alternative
+} // CONDITION74 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=65 N=64
-if (javadummy) break CONDITION64;
-} // CONDLIST65 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=73 N=72
+if (javadummy) break CONDITION72;
+} // CONDLIST73 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION64
+} // CONDITION72
 // failed:
 JavaLib.rtsAllAlternativesFailed("listOfPosElems");
 }
@@ -1801,12 +2232,12 @@ JavaNode yy_inparam_0
 JavaNode yy_outparam_0 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION67:
+CONDITION75:
 while(javadummy) {
-// ***** begin condlist 68 (in cond 67) *****
-CONDLIST68: // @@@ begin of alternative group
+// ***** begin condlist 76 (in cond 75) *****
+CONDLIST76: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION69: // @@@ begin of alternative
+CONDITION77: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -1828,18 +2259,18 @@ NodeFactory.NewNode (
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST68;
+if (javadummy) break CONDLIST76;
 // $$$$$$$$ 
-} // CONDITION69 // @@@ end of alternative
+} // CONDITION77 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=68 N=67
-if (javadummy) break CONDITION67;
-} // CONDLIST68 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=76 N=75
+if (javadummy) break CONDITION75;
+} // CONDLIST76 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION67
+} // CONDITION75
 // failed:
 JavaLib.rtsAllAlternativesFailed("listOfNegElems");
 }
@@ -1858,12 +2289,12 @@ JavaNode yy_outparam_0 = null;
 JavaNode yy_outparam_1 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION70:
+CONDITION78:
 while(javadummy) {
-// ***** begin condlist 71 (in cond 70) *****
-CONDLIST71: // @@@ begin of alternative group
+// ***** begin condlist 79 (in cond 78) *****
+CONDLIST79: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION72: // @@@ begin of alternative
+CONDITION80: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -1899,19 +2330,19 @@ NodeFactory.NewNode (
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST71;
+if (javadummy) break CONDLIST79;
 // $$$$$$$$ 
-} // CONDITION72 // @@@ end of alternative
+} // CONDITION80 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=71 N=70
-if (javadummy) break CONDITION70;
-} // CONDLIST71 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=79 N=78
+if (javadummy) break CONDITION78;
+} // CONDLIST79 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 JavaLib.yyoutvalue2 = yy_outparam_1;
 if (javadummy) return;
-} // CONDITION70
+} // CONDITION78
 // failed:
 JavaLib.rtsAllAlternativesFailed("listsOfPosNegElems");
 }
@@ -1929,12 +2360,12 @@ JavaNode yy_inparam_0
 JavaNode yy_outparam_0 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION73:
+CONDITION81:
 while(javadummy) {
-// ***** begin condlist 74 (in cond 73) *****
-CONDLIST74: // @@@ begin of alternative group
+// ***** begin condlist 82 (in cond 81) *****
+CONDLIST82: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION75: // @@@ begin of alternative
+CONDITION83: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -1956,18 +2387,18 @@ NodeFactory.NewNode (
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST74;
+if (javadummy) break CONDLIST82;
 // $$$$$$$$ 
-} // CONDITION75 // @@@ end of alternative
+} // CONDITION83 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=74 N=73
-if (javadummy) break CONDITION73;
-} // CONDLIST74 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=82 N=81
+if (javadummy) break CONDITION81;
+} // CONDLIST82 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION73
+} // CONDITION81
 // failed:
 JavaLib.rtsAllAlternativesFailed("listOfEvenElems");
 }
@@ -1985,12 +2416,12 @@ JavaNode yy_inparam_0
 JavaNode yy_outparam_0 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION76:
+CONDITION84:
 while(javadummy) {
-// ***** begin condlist 77 (in cond 76) *****
-CONDLIST77: // @@@ begin of alternative group
+// ***** begin condlist 85 (in cond 84) *****
+CONDLIST85: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION78: // @@@ begin of alternative
+CONDITION86: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2003,18 +2434,18 @@ new JavaIntValue(999)
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST77;
+if (javadummy) break CONDLIST85;
 // $$$$$$$$ 
-} // CONDITION78 // @@@ end of alternative
+} // CONDITION86 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=77 N=76
-if (javadummy) break CONDITION76;
-} // CONDLIST77 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=85 N=84
+if (javadummy) break CONDITION84;
+} // CONDLIST85 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION76
+} // CONDITION84
 // failed:
 JavaLib.rtsAllAlternativesFailed("nrOfEqualNeighbors");
 }
@@ -2038,12 +2469,12 @@ JavaNode N = null;
 JavaNode E = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION79:
+CONDITION87:
 while(javadummy) {
-// ***** begin condlist 80 (in cond 79) *****
-CONDLIST80: // @@@ begin of alternative group
+// ***** begin condlist 88 (in cond 87) *****
+CONDLIST88: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION81: // @@@ begin of alternative
+CONDITION89: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2059,7 +2490,7 @@ E = current0 ;
 JavaNode current0 = L;
 if (current0.Name
 != "SeqOf-int")
-if (javadummy) break CONDITION81;
+if (javadummy) break CONDITION89;
 { //(( children level 1
 JavaNode current1 =
    current0 .Child1[0];
@@ -2068,21 +2499,21 @@ N = current1 ;
 current1 = current0.Child1[1];
 if (current1.Name
 != "NilOf-int")
-if (javadummy) break CONDITION81;
+if (javadummy) break CONDITION89;
 } //)) children level 1
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST80;
+if (javadummy) break CONDLIST88;
 // $$$$$$$$ 
-} // CONDITION81 // @@@ end of alternative
+} // CONDITION89 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=80 N=79
-if (javadummy) break CONDITION79;
-} // CONDLIST80 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=88 N=87
+if (javadummy) break CONDITION87;
+} // CONDLIST88 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 return true;
-} // CONDITION79
+} // CONDITION87
 // failed:
 return false;
 }
@@ -2106,12 +2537,12 @@ JavaNode N = null;
 JavaNode L2 = null;
 // DECLARE for proc L1
 JavaNode L1 = null;
-CONDITION82:
+CONDITION90:
 while(javadummy) {
-// ***** begin condlist 83 (in cond 82) *****
-CONDLIST83: // @@@ begin of alternative group
+// ***** begin condlist 91 (in cond 90) *****
+CONDLIST91: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION84: // @@@ begin of alternative
+CONDITION92: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2127,7 +2558,7 @@ L2 = current0 ;
 JavaNode current0 = L1;
 if (current0.Name
 != "SeqOf-int")
-if (javadummy) break CONDITION84;
+if (javadummy) break CONDITION92;
 { //(( children level 1
 JavaNode current1 =
    current0 .Child1[0];
@@ -2136,21 +2567,21 @@ N = current1 ;
 current1 = current0.Child1[1];
 if (current1.Name
 != "NilOf-int")
-if (javadummy) break CONDITION84;
+if (javadummy) break CONDITION92;
 } //)) children level 1
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST83;
+if (javadummy) break CONDLIST91;
 // $$$$$$$$ 
-} // CONDITION84 // @@@ end of alternative
+} // CONDITION92 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=83 N=82
-if (javadummy) break CONDITION82;
-} // CONDLIST83 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=91 N=90
+if (javadummy) break CONDITION90;
+} // CONDLIST91 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 return true;
-} // CONDITION82
+} // CONDITION90
 // failed:
 return false;
 }
@@ -2169,12 +2600,12 @@ JavaNode yy_inparam_0
 JavaNode N = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION85:
+CONDITION93:
 while(javadummy) {
-// ***** begin condlist 86 (in cond 85) *****
-CONDLIST86: // @@@ begin of alternative group
+// ***** begin condlist 94 (in cond 93) *****
+CONDLIST94: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION87: // @@@ begin of alternative
+CONDITION95: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2185,7 +2616,7 @@ L = current0 ;
 JavaNode current0 = L;
 if (current0.Name
 != "SeqOf-int")
-if (javadummy) break CONDITION87;
+if (javadummy) break CONDITION95;
 { //(( children level 1
 JavaNode current1 =
    current0 .Child1[0];
@@ -2194,21 +2625,21 @@ N = current1 ;
 current1 = current0.Child1[1];
 if (current1.Name
 != "NilOf-int")
-if (javadummy) break CONDITION87;
+if (javadummy) break CONDITION95;
 } //)) children level 1
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST86;
+if (javadummy) break CONDLIST94;
 // $$$$$$$$ 
-} // CONDITION87 // @@@ end of alternative
+} // CONDITION95 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=86 N=85
-if (javadummy) break CONDITION85;
-} // CONDLIST86 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=94 N=93
+if (javadummy) break CONDITION93;
+} // CONDLIST94 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 return true;
-} // CONDITION85
+} // CONDITION93
 // failed:
 return false;
 }
@@ -2232,12 +2663,12 @@ JavaNode N = null;
 JavaNode L2 = null;
 // DECLARE for proc L1
 JavaNode L1 = null;
-CONDITION88:
+CONDITION96:
 while(javadummy) {
-// ***** begin condlist 89 (in cond 88) *****
-CONDLIST89: // @@@ begin of alternative group
+// ***** begin condlist 97 (in cond 96) *****
+CONDLIST97: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION90: // @@@ begin of alternative
+CONDITION98: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2253,7 +2684,7 @@ L2 = current0 ;
 JavaNode current0 = L1;
 if (current0.Name
 != "SeqOf-int")
-if (javadummy) break CONDITION90;
+if (javadummy) break CONDITION98;
 { //(( children level 1
 JavaNode current1 =
    current0 .Child1[0];
@@ -2262,21 +2693,21 @@ N = current1 ;
 current1 = current0.Child1[1];
 if (current1.Name
 != "NilOf-int")
-if (javadummy) break CONDITION90;
+if (javadummy) break CONDITION98;
 } //)) children level 1
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST89;
+if (javadummy) break CONDLIST97;
 // $$$$$$$$ 
-} // CONDITION90 // @@@ end of alternative
+} // CONDITION98 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=89 N=88
-if (javadummy) break CONDITION88;
-} // CONDLIST89 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=97 N=96
+if (javadummy) break CONDITION96;
+} // CONDLIST97 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 return true;
-} // CONDITION88
+} // CONDITION96
 // failed:
 return false;
 }
@@ -2295,12 +2726,12 @@ JavaNode yy_inparam_0
 JavaNode N = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION91:
+CONDITION99:
 while(javadummy) {
-// ***** begin condlist 92 (in cond 91) *****
-CONDLIST92: // @@@ begin of alternative group
+// ***** begin condlist 100 (in cond 99) *****
+CONDLIST100: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION93: // @@@ begin of alternative
+CONDITION101: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2311,7 +2742,7 @@ L = current0 ;
 JavaNode current0 = L;
 if (current0.Name
 != "SeqOf-int")
-if (javadummy) break CONDITION93;
+if (javadummy) break CONDITION101;
 { //(( children level 1
 JavaNode current1 =
    current0 .Child1[0];
@@ -2320,21 +2751,21 @@ N = current1 ;
 current1 = current0.Child1[1];
 if (current1.Name
 != "NilOf-int")
-if (javadummy) break CONDITION93;
+if (javadummy) break CONDITION101;
 } //)) children level 1
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST92;
+if (javadummy) break CONDLIST100;
 // $$$$$$$$ 
-} // CONDITION93 // @@@ end of alternative
+} // CONDITION101 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=92 N=91
-if (javadummy) break CONDITION91;
-} // CONDLIST92 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=100 N=99
+if (javadummy) break CONDITION99;
+} // CONDLIST100 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 return true;
-} // CONDITION91
+} // CONDITION99
 // failed:
 return false;
 }
@@ -2351,12 +2782,12 @@ JavaNode yy_inparam_0
 {
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION94:
+CONDITION102:
 while(javadummy) {
-// ***** begin condlist 95 (in cond 94) *****
-CONDLIST95: // @@@ begin of alternative group
+// ***** begin condlist 103 (in cond 102) *****
+CONDLIST103: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION96: // @@@ begin of alternative
+CONDITION104: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2367,20 +2798,20 @@ L = current0 ;
 JavaNode current0 = L;
 if (current0.Name
 != "NilOf-int")
-if (javadummy) break CONDITION96;
+if (javadummy) break CONDITION104;
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST95;
+if (javadummy) break CONDLIST103;
 // $$$$$$$$ 
-} // CONDITION96 // @@@ end of alternative
+} // CONDITION104 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=95 N=94
-if (javadummy) break CONDITION94;
-} // CONDLIST95 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=103 N=102
+if (javadummy) break CONDITION102;
+} // CONDLIST103 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 return true;
-} // CONDITION94
+} // CONDITION102
 // failed:
 return false;
 }
@@ -2398,12 +2829,12 @@ JavaNode yy_inparam_0
 JavaNode yy_outparam_0 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION97:
+CONDITION105:
 while(javadummy) {
-// ***** begin condlist 98 (in cond 97) *****
-CONDLIST98: // @@@ begin of alternative group
+// ***** begin condlist 106 (in cond 105) *****
+CONDLIST106: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION99: // @@@ begin of alternative
+CONDITION107: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2423,18 +2854,18 @@ NodeFactory.NewNode (
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST98;
+if (javadummy) break CONDLIST106;
 // $$$$$$$$ 
-} // CONDITION99 // @@@ end of alternative
+} // CONDITION107 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=98 N=97
-if (javadummy) break CONDITION97;
-} // CONDLIST98 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=106 N=105
+if (javadummy) break CONDITION105;
+} // CONDLIST106 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION97
+} // CONDITION105
 // failed:
 JavaLib.rtsAllAlternativesFailed("firstElem");
 }
@@ -2452,12 +2883,12 @@ JavaNode yy_inparam_0
 JavaNode yy_outparam_0 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION100:
+CONDITION108:
 while(javadummy) {
-// ***** begin condlist 101 (in cond 100) *****
-CONDLIST101: // @@@ begin of alternative group
+// ***** begin condlist 109 (in cond 108) *****
+CONDLIST109: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION102: // @@@ begin of alternative
+CONDITION110: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2477,18 +2908,18 @@ NodeFactory.NewNode (
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST101;
+if (javadummy) break CONDLIST109;
 // $$$$$$$$ 
-} // CONDITION102 // @@@ end of alternative
+} // CONDITION110 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=101 N=100
-if (javadummy) break CONDITION100;
-} // CONDLIST101 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=109 N=108
+if (javadummy) break CONDITION108;
+} // CONDLIST109 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION100
+} // CONDITION108
 // failed:
 JavaLib.rtsAllAlternativesFailed("butFirstElem");
 }
@@ -2506,12 +2937,12 @@ JavaNode yy_inparam_0
 JavaNode yy_outparam_0 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION103:
+CONDITION111:
 while(javadummy) {
-// ***** begin condlist 104 (in cond 103) *****
-CONDLIST104: // @@@ begin of alternative group
+// ***** begin condlist 112 (in cond 111) *****
+CONDLIST112: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION105: // @@@ begin of alternative
+CONDITION113: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2531,18 +2962,18 @@ NodeFactory.NewNode (
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST104;
+if (javadummy) break CONDLIST112;
 // $$$$$$$$ 
-} // CONDITION105 // @@@ end of alternative
+} // CONDITION113 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=104 N=103
-if (javadummy) break CONDITION103;
-} // CONDLIST104 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=112 N=111
+if (javadummy) break CONDITION111;
+} // CONDLIST112 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION103
+} // CONDITION111
 // failed:
 JavaLib.rtsAllAlternativesFailed("lastElem");
 }
@@ -2560,12 +2991,12 @@ JavaNode yy_inparam_0
 JavaNode yy_outparam_0 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION106:
+CONDITION114:
 while(javadummy) {
-// ***** begin condlist 107 (in cond 106) *****
-CONDLIST107: // @@@ begin of alternative group
+// ***** begin condlist 115 (in cond 114) *****
+CONDLIST115: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION108: // @@@ begin of alternative
+CONDITION116: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2585,18 +3016,18 @@ NodeFactory.NewNode (
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST107;
+if (javadummy) break CONDLIST115;
 // $$$$$$$$ 
-} // CONDITION108 // @@@ end of alternative
+} // CONDITION116 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=107 N=106
-if (javadummy) break CONDITION106;
-} // CONDLIST107 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=115 N=114
+if (javadummy) break CONDITION114;
+} // CONDLIST115 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION106
+} // CONDITION114
 // failed:
 JavaLib.rtsAllAlternativesFailed("butLastElem");
 }
@@ -2614,12 +3045,12 @@ JavaNode yy_inparam_0
 JavaNode yy_outparam_0 = null;
 // DECLARE for proc L
 JavaNode L = null;
-CONDITION109:
+CONDITION117:
 while(javadummy) {
-// ***** begin condlist 110 (in cond 109) *****
-CONDLIST110: // @@@ begin of alternative group
+// ***** begin condlist 118 (in cond 117) *****
+CONDLIST118: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION111: // @@@ begin of alternative
+CONDITION119: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2639,18 +3070,18 @@ NodeFactory.NewNode (
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST110;
+if (javadummy) break CONDLIST118;
 // $$$$$$$$ 
-} // CONDITION111 // @@@ end of alternative
+} // CONDITION119 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=110 N=109
-if (javadummy) break CONDITION109;
-} // CONDLIST110 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=118 N=117
+if (javadummy) break CONDITION117;
+} // CONDLIST118 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 JavaLib.yyoutvalue1 = yy_outparam_0;
 if (javadummy) return;
-} // CONDITION109
+} // CONDITION117
 // failed:
 JavaLib.rtsAllAlternativesFailed("reverse");
 }
@@ -2667,12 +3098,12 @@ void
 init(
 )
 {
-CONDITION112:
+CONDITION120:
 while(javadummy) {
-// ***** begin condlist 113 (in cond 112) *****
-CONDLIST113: // @@@ begin of alternative group
+// ***** begin condlist 121 (in cond 120) *****
+CONDLIST121: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION114: // @@@ begin of alternative
+CONDITION122: // @@@ begin of alternative
 while(javadummy) {
 NrOfTests=
 new JavaIntValue(0)
@@ -2681,17 +3112,17 @@ NrOfFailures=
 new JavaIntValue(0)
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST113;
+if (javadummy) break CONDLIST121;
 // $$$$$$$$ 
-} // CONDITION114 // @@@ end of alternative
+} // CONDITION122 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=113 N=112
-if (javadummy) break CONDITION112;
-} // CONDLIST113 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=121 N=120
+if (javadummy) break CONDITION120;
+} // CONDLIST121 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION112
+} // CONDITION120
 // failed:
 JavaLib.rtsAllAlternativesFailed("init");
 }
@@ -2706,15 +3137,15 @@ incTests(
 {
 // DECLARE for proc NR
 JavaNode NR = null;
-CONDITION115:
+CONDITION123:
 while(javadummy) {
-// ***** begin condlist 116 (in cond 115) *****
-CONDLIST116: // @@@ begin of alternative group
+// ***** begin condlist 124 (in cond 123) *****
+CONDLIST124: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION117: // @@@ begin of alternative
+CONDITION125: // @@@ begin of alternative
 while(javadummy) {
-if (! JavaLib.rtsTestDefined(NrOfTests,"/line,offset,length,file=/ 414 17634 9 prob01.g"))
-if (javadummy) break CONDITION117;
+if (! JavaLib.rtsTestDefined(NrOfTests,"/line,offset,length,file=/ 437 18285 9 prob01.g"))
+if (javadummy) break CONDITION125;
 {
 JavaNode current0 = NrOfTests;
 //assign current0 to NR --- JJ.M4
@@ -2728,17 +3159,17 @@ new JavaIntValue(1)
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST116;
+if (javadummy) break CONDLIST124;
 // $$$$$$$$ 
-} // CONDITION117 // @@@ end of alternative
+} // CONDITION125 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=116 N=115
-if (javadummy) break CONDITION115;
-} // CONDLIST116 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=124 N=123
+if (javadummy) break CONDITION123;
+} // CONDLIST124 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION115
+} // CONDITION123
 // failed:
 JavaLib.rtsAllAlternativesFailed("incTests");
 }
@@ -2753,15 +3184,15 @@ incFailures(
 {
 // DECLARE for proc NR
 JavaNode NR = null;
-CONDITION118:
+CONDITION126:
 while(javadummy) {
-// ***** begin condlist 119 (in cond 118) *****
-CONDLIST119: // @@@ begin of alternative group
+// ***** begin condlist 127 (in cond 126) *****
+CONDLIST127: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION120: // @@@ begin of alternative
+CONDITION128: // @@@ begin of alternative
 while(javadummy) {
-if (! JavaLib.rtsTestDefined(NrOfFailures,"/line,offset,length,file=/ 419 17734 12 prob01.g"))
-if (javadummy) break CONDITION120;
+if (! JavaLib.rtsTestDefined(NrOfFailures,"/line,offset,length,file=/ 442 18385 12 prob01.g"))
+if (javadummy) break CONDITION128;
 {
 JavaNode current0 = NrOfFailures;
 //assign current0 to NR --- JJ.M4
@@ -2775,17 +3206,17 @@ new JavaIntValue(1)
 )
 ;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST119;
+if (javadummy) break CONDLIST127;
 // $$$$$$$$ 
-} // CONDITION120 // @@@ end of alternative
+} // CONDITION128 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=119 N=118
-if (javadummy) break CONDITION118;
-} // CONDLIST119 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=127 N=126
+if (javadummy) break CONDITION126;
+} // CONDLIST127 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION118
+} // CONDITION126
 // failed:
 JavaLib.rtsAllAlternativesFailed("incFailures");
 }
@@ -2809,12 +3240,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION121:
+CONDITION129:
 while(javadummy) {
-// ***** begin condlist 122 (in cond 121) *****
-CONDLIST122: // @@@ begin of alternative group
+// ***** begin condlist 130 (in cond 129) *****
+CONDLIST130: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION123: // @@@ begin of alternative
+CONDITION131: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2849,17 +3280,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST122;
+if (javadummy) break CONDLIST130;
 // $$$$$$$$ 
-} // CONDITION123 // @@@ end of alternative
+} // CONDITION131 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=122 N=121
-if (javadummy) break CONDITION121;
-} // CONDLIST122 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=130 N=129
+if (javadummy) break CONDITION129;
+} // CONDLIST130 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION121
+} // CONDITION129
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_length");
 }
@@ -2883,12 +3314,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION124:
+CONDITION132:
 while(javadummy) {
-// ***** begin condlist 125 (in cond 124) *****
-CONDLIST125: // @@@ begin of alternative group
+// ***** begin condlist 133 (in cond 132) *****
+CONDLIST133: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION126: // @@@ begin of alternative
+CONDITION134: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2923,17 +3354,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST125;
+if (javadummy) break CONDLIST133;
 // $$$$$$$$ 
-} // CONDITION126 // @@@ end of alternative
+} // CONDITION134 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=125 N=124
-if (javadummy) break CONDITION124;
-} // CONDLIST125 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=133 N=132
+if (javadummy) break CONDITION132;
+} // CONDLIST133 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION124
+} // CONDITION132
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_sum");
 }
@@ -2957,12 +3388,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION127:
+CONDITION135:
 while(javadummy) {
-// ***** begin condlist 128 (in cond 127) *****
-CONDLIST128: // @@@ begin of alternative group
+// ***** begin condlist 136 (in cond 135) *****
+CONDLIST136: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION129: // @@@ begin of alternative
+CONDITION137: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -2997,17 +3428,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST128;
+if (javadummy) break CONDLIST136;
 // $$$$$$$$ 
-} // CONDITION129 // @@@ end of alternative
+} // CONDITION137 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=128 N=127
-if (javadummy) break CONDITION127;
-} // CONDLIST128 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=136 N=135
+if (javadummy) break CONDITION135;
+} // CONDLIST136 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION127
+} // CONDITION135
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_nrOfPosElems");
 }
@@ -3031,12 +3462,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION130:
+CONDITION138:
 while(javadummy) {
-// ***** begin condlist 131 (in cond 130) *****
-CONDLIST131: // @@@ begin of alternative group
+// ***** begin condlist 139 (in cond 138) *****
+CONDLIST139: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION132: // @@@ begin of alternative
+CONDITION140: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3071,17 +3502,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST131;
+if (javadummy) break CONDLIST139;
 // $$$$$$$$ 
-} // CONDITION132 // @@@ end of alternative
+} // CONDITION140 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=131 N=130
-if (javadummy) break CONDITION130;
-} // CONDLIST131 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=139 N=138
+if (javadummy) break CONDITION138;
+} // CONDLIST139 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION130
+} // CONDITION138
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_nrOfNegElems");
 }
@@ -3105,12 +3536,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION133:
+CONDITION141:
 while(javadummy) {
-// ***** begin condlist 134 (in cond 133) *****
-CONDLIST134: // @@@ begin of alternative group
+// ***** begin condlist 142 (in cond 141) *****
+CONDLIST142: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION135: // @@@ begin of alternative
+CONDITION143: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3145,17 +3576,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST134;
+if (javadummy) break CONDLIST142;
 // $$$$$$$$ 
-} // CONDITION135 // @@@ end of alternative
+} // CONDITION143 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=134 N=133
-if (javadummy) break CONDITION133;
-} // CONDLIST134 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=142 N=141
+if (javadummy) break CONDITION141;
+} // CONDLIST142 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION133
+} // CONDITION141
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_sumOfPosElems");
 }
@@ -3179,12 +3610,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION136:
+CONDITION144:
 while(javadummy) {
-// ***** begin condlist 137 (in cond 136) *****
-CONDLIST137: // @@@ begin of alternative group
+// ***** begin condlist 145 (in cond 144) *****
+CONDLIST145: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION138: // @@@ begin of alternative
+CONDITION146: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3219,17 +3650,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST137;
+if (javadummy) break CONDLIST145;
 // $$$$$$$$ 
-} // CONDITION138 // @@@ end of alternative
+} // CONDITION146 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=137 N=136
-if (javadummy) break CONDITION136;
-} // CONDLIST137 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=145 N=144
+if (javadummy) break CONDITION144;
+} // CONDLIST145 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION136
+} // CONDITION144
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_sumOfNegElems");
 }
@@ -3253,12 +3684,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION139:
+CONDITION147:
 while(javadummy) {
-// ***** begin condlist 140 (in cond 139) *****
-CONDLIST140: // @@@ begin of alternative group
+// ***** begin condlist 148 (in cond 147) *****
+CONDLIST148: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION141: // @@@ begin of alternative
+CONDITION149: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3293,17 +3724,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST140;
+if (javadummy) break CONDLIST148;
 // $$$$$$$$ 
-} // CONDITION141 // @@@ end of alternative
+} // CONDITION149 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=140 N=139
-if (javadummy) break CONDITION139;
-} // CONDLIST140 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=148 N=147
+if (javadummy) break CONDITION147;
+} // CONDLIST148 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION139
+} // CONDITION147
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_maxPosElem");
 }
@@ -3327,12 +3758,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION142:
+CONDITION150:
 while(javadummy) {
-// ***** begin condlist 143 (in cond 142) *****
-CONDLIST143: // @@@ begin of alternative group
+// ***** begin condlist 151 (in cond 150) *****
+CONDLIST151: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION144: // @@@ begin of alternative
+CONDITION152: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3367,17 +3798,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST143;
+if (javadummy) break CONDLIST151;
 // $$$$$$$$ 
-} // CONDITION144 // @@@ end of alternative
+} // CONDITION152 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=143 N=142
-if (javadummy) break CONDITION142;
-} // CONDLIST143 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=151 N=150
+if (javadummy) break CONDITION150;
+} // CONDLIST151 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION142
+} // CONDITION150
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_minNegElem");
 }
@@ -3397,12 +3828,12 @@ JavaNode yy_inparam_1
 {
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION145:
+CONDITION153:
 while(javadummy) {
-// ***** begin condlist 146 (in cond 145) *****
-CONDLIST146: // @@@ begin of alternative group
+// ***** begin condlist 154 (in cond 153) *****
+CONDLIST154: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION147: // @@@ begin of alternative
+CONDITION155: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3413,16 +3844,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"succ"))
-   if (javadummy) break  CONDITION147;
+   if (javadummy) break  CONDITION155;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 148 (in cond 147) *****
-CONDLIST148: // @@@ begin of alternative group
+// ***** begin condlist 156 (in cond 155) *****
+CONDLIST156: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION149: // @@@ begin of alternative
+CONDITION157: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -3431,12 +3862,12 @@ isEven
 IN1
 )
 )
-if (javadummy) break CONDITION149;
+if (javadummy) break CONDITION157;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST148;
+if (javadummy) break CONDLIST156;
 // $$$$$$$$ 
-} // CONDITION149 // @@@ end of alternative
-CONDITION150: // @@@ begin of alternative
+} // CONDITION157 // @@@ end of alternative
+CONDITION158: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 ermI
@@ -3446,19 +3877,19 @@ new JavaStringValue( "isEven failed" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST148;
+if (javadummy) break CONDLIST156;
 // $$$$$$$$ 
-} // CONDITION150 // @@@ end of alternative
+} // CONDITION158 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=148 N=147
-if (javadummy) break CONDITION147;
-} // CONDLIST148 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=156 N=155
+if (javadummy) break CONDITION155;
+} // CONDLIST156 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST146;
+if (javadummy) break CONDLIST154;
 // $$$$$$$$ 
-} // CONDITION147 // @@@ end of alternative
-CONDITION151: // @@@ begin of alternative
+} // CONDITION155 // @@@ end of alternative
+CONDITION159: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3469,16 +3900,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"fail"))
-   if (javadummy) break  CONDITION151;
+   if (javadummy) break  CONDITION159;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 152 (in cond 151) *****
-CONDLIST152: // @@@ begin of alternative group
+// ***** begin condlist 160 (in cond 159) *****
+CONDLIST160: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION153: // @@@ begin of alternative
+CONDITION161: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -3487,7 +3918,7 @@ isEven
 IN1
 )
 )
-if (javadummy) break CONDITION153;
+if (javadummy) break CONDITION161;
 Procs.
 ermI
 (
@@ -3496,26 +3927,26 @@ new JavaStringValue( "isEven succeeded" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST152;
+if (javadummy) break CONDLIST160;
 // $$$$$$$$ 
-} // CONDITION153 // @@@ end of alternative
+} // CONDITION161 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=152 N=151
-if (javadummy) break CONDLIST152;
-} // CONDLIST152 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=160 N=159
+if (javadummy) break CONDLIST160;
+} // CONDLIST160 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST146;
+if (javadummy) break CONDLIST154;
 // $$$$$$$$ 
-} // CONDITION151 // @@@ end of alternative
+} // CONDITION159 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=146 N=145
-if (javadummy) break CONDITION145;
-} // CONDLIST146 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=154 N=153
+if (javadummy) break CONDITION153;
+} // CONDLIST154 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION145
+} // CONDITION153
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_isEven");
 }
@@ -3535,12 +3966,12 @@ JavaNode yy_inparam_1
 {
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION154:
+CONDITION162:
 while(javadummy) {
-// ***** begin condlist 155 (in cond 154) *****
-CONDLIST155: // @@@ begin of alternative group
+// ***** begin condlist 163 (in cond 162) *****
+CONDLIST163: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION156: // @@@ begin of alternative
+CONDITION164: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3551,16 +3982,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"succ"))
-   if (javadummy) break  CONDITION156;
+   if (javadummy) break  CONDITION164;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 157 (in cond 156) *****
-CONDLIST157: // @@@ begin of alternative group
+// ***** begin condlist 165 (in cond 164) *****
+CONDLIST165: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION158: // @@@ begin of alternative
+CONDITION166: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -3569,12 +4000,12 @@ isOdd
 IN1
 )
 )
-if (javadummy) break CONDITION158;
+if (javadummy) break CONDITION166;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST157;
+if (javadummy) break CONDLIST165;
 // $$$$$$$$ 
-} // CONDITION158 // @@@ end of alternative
-CONDITION159: // @@@ begin of alternative
+} // CONDITION166 // @@@ end of alternative
+CONDITION167: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 ermI
@@ -3584,19 +4015,19 @@ new JavaStringValue( "isOdd failed" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST157;
+if (javadummy) break CONDLIST165;
 // $$$$$$$$ 
-} // CONDITION159 // @@@ end of alternative
+} // CONDITION167 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=157 N=156
-if (javadummy) break CONDITION156;
-} // CONDLIST157 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=165 N=164
+if (javadummy) break CONDITION164;
+} // CONDLIST165 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST155;
+if (javadummy) break CONDLIST163;
 // $$$$$$$$ 
-} // CONDITION156 // @@@ end of alternative
-CONDITION160: // @@@ begin of alternative
+} // CONDITION164 // @@@ end of alternative
+CONDITION168: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3607,16 +4038,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"fail"))
-   if (javadummy) break  CONDITION160;
+   if (javadummy) break  CONDITION168;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 161 (in cond 160) *****
-CONDLIST161: // @@@ begin of alternative group
+// ***** begin condlist 169 (in cond 168) *****
+CONDLIST169: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION162: // @@@ begin of alternative
+CONDITION170: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -3625,7 +4056,7 @@ isOdd
 IN1
 )
 )
-if (javadummy) break CONDITION162;
+if (javadummy) break CONDITION170;
 Procs.
 ermI
 (
@@ -3634,26 +4065,26 @@ new JavaStringValue( "isOdd succeeded" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST161;
+if (javadummy) break CONDLIST169;
 // $$$$$$$$ 
-} // CONDITION162 // @@@ end of alternative
+} // CONDITION170 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=161 N=160
-if (javadummy) break CONDLIST161;
-} // CONDLIST161 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=169 N=168
+if (javadummy) break CONDLIST169;
+} // CONDLIST169 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST155;
+if (javadummy) break CONDLIST163;
 // $$$$$$$$ 
-} // CONDITION160 // @@@ end of alternative
+} // CONDITION168 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=155 N=154
-if (javadummy) break CONDITION154;
-} // CONDLIST155 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=163 N=162
+if (javadummy) break CONDITION162;
+} // CONDLIST163 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION154
+} // CONDITION162
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_isOdd");
 }
@@ -3677,12 +4108,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION163:
+CONDITION171:
 while(javadummy) {
-// ***** begin condlist 164 (in cond 163) *****
-CONDLIST164: // @@@ begin of alternative group
+// ***** begin condlist 172 (in cond 171) *****
+CONDLIST172: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION165: // @@@ begin of alternative
+CONDITION173: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3717,17 +4148,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST164;
+if (javadummy) break CONDLIST172;
 // $$$$$$$$ 
-} // CONDITION165 // @@@ end of alternative
+} // CONDITION173 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=164 N=163
-if (javadummy) break CONDITION163;
-} // CONDLIST164 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=172 N=171
+if (javadummy) break CONDITION171;
+} // CONDLIST172 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION163
+} // CONDITION171
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_nrOfEvenElems");
 }
@@ -3751,12 +4182,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION166:
+CONDITION174:
 while(javadummy) {
-// ***** begin condlist 167 (in cond 166) *****
-CONDLIST167: // @@@ begin of alternative group
+// ***** begin condlist 175 (in cond 174) *****
+CONDLIST175: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION168: // @@@ begin of alternative
+CONDITION176: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3791,17 +4222,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST167;
+if (javadummy) break CONDLIST175;
 // $$$$$$$$ 
-} // CONDITION168 // @@@ end of alternative
+} // CONDITION176 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=167 N=166
-if (javadummy) break CONDITION166;
-} // CONDLIST167 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=175 N=174
+if (javadummy) break CONDITION174;
+} // CONDLIST175 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION166
+} // CONDITION174
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_nrOfOddElems");
 }
@@ -3832,12 +4263,12 @@ JavaNode EXP2 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION169:
+CONDITION177:
 while(javadummy) {
-// ***** begin condlist 170 (in cond 169) *****
-CONDLIST170: // @@@ begin of alternative group
+// ***** begin condlist 178 (in cond 177) *****
+CONDLIST178: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION171: // @@@ begin of alternative
+CONDITION179: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3887,17 +4318,17 @@ FND1
 FND2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST170;
+if (javadummy) break CONDLIST178;
 // $$$$$$$$ 
-} // CONDITION171 // @@@ end of alternative
+} // CONDITION179 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=170 N=169
-if (javadummy) break CONDITION169;
-} // CONDLIST170 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=178 N=177
+if (javadummy) break CONDITION177;
+} // CONDLIST178 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION169
+} // CONDITION177
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_nrsOfPosNegElems");
 }
@@ -3928,12 +4359,12 @@ JavaNode EXP2 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION172:
+CONDITION180:
 while(javadummy) {
-// ***** begin condlist 173 (in cond 172) *****
-CONDLIST173: // @@@ begin of alternative group
+// ***** begin condlist 181 (in cond 180) *****
+CONDLIST181: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION174: // @@@ begin of alternative
+CONDITION182: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -3983,17 +4414,17 @@ FND1
 FND2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST173;
+if (javadummy) break CONDLIST181;
 // $$$$$$$$ 
-} // CONDITION174 // @@@ end of alternative
+} // CONDITION182 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=173 N=172
-if (javadummy) break CONDITION172;
-} // CONDLIST173 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=181 N=180
+if (javadummy) break CONDITION180;
+} // CONDLIST181 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION172
+} // CONDITION180
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_nrsOfNegEvenElems");
 }
@@ -4017,12 +4448,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION175:
+CONDITION183:
 while(javadummy) {
-// ***** begin condlist 176 (in cond 175) *****
-CONDLIST176: // @@@ begin of alternative group
+// ***** begin condlist 184 (in cond 183) *****
+CONDLIST184: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION177: // @@@ begin of alternative
+CONDITION185: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4057,17 +4488,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST176;
+if (javadummy) break CONDLIST184;
 // $$$$$$$$ 
-} // CONDITION177 // @@@ end of alternative
+} // CONDITION185 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=176 N=175
-if (javadummy) break CONDITION175;
-} // CONDLIST176 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=184 N=183
+if (javadummy) break CONDITION183;
+} // CONDLIST184 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION175
+} // CONDITION183
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_listOfPosElems");
 }
@@ -4091,12 +4522,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION178:
+CONDITION186:
 while(javadummy) {
-// ***** begin condlist 179 (in cond 178) *****
-CONDLIST179: // @@@ begin of alternative group
+// ***** begin condlist 187 (in cond 186) *****
+CONDLIST187: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION180: // @@@ begin of alternative
+CONDITION188: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4131,17 +4562,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST179;
+if (javadummy) break CONDLIST187;
 // $$$$$$$$ 
-} // CONDITION180 // @@@ end of alternative
+} // CONDITION188 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=179 N=178
-if (javadummy) break CONDITION178;
-} // CONDLIST179 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=187 N=186
+if (javadummy) break CONDITION186;
+} // CONDLIST187 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION178
+} // CONDITION186
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_listOfNegElems");
 }
@@ -4172,12 +4603,12 @@ JavaNode EXP2 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION181:
+CONDITION189:
 while(javadummy) {
-// ***** begin condlist 182 (in cond 181) *****
-CONDLIST182: // @@@ begin of alternative group
+// ***** begin condlist 190 (in cond 189) *****
+CONDLIST190: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION183: // @@@ begin of alternative
+CONDITION191: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4227,17 +4658,17 @@ FND1
 FND2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST182;
+if (javadummy) break CONDLIST190;
 // $$$$$$$$ 
-} // CONDITION183 // @@@ end of alternative
+} // CONDITION191 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=182 N=181
-if (javadummy) break CONDITION181;
-} // CONDLIST182 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=190 N=189
+if (javadummy) break CONDITION189;
+} // CONDLIST190 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION181
+} // CONDITION189
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_listsOfPosNegElems");
 }
@@ -4261,12 +4692,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION184:
+CONDITION192:
 while(javadummy) {
-// ***** begin condlist 185 (in cond 184) *****
-CONDLIST185: // @@@ begin of alternative group
+// ***** begin condlist 193 (in cond 192) *****
+CONDLIST193: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION186: // @@@ begin of alternative
+CONDITION194: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4301,17 +4732,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST185;
+if (javadummy) break CONDLIST193;
 // $$$$$$$$ 
-} // CONDITION186 // @@@ end of alternative
+} // CONDITION194 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=185 N=184
-if (javadummy) break CONDITION184;
-} // CONDLIST185 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=193 N=192
+if (javadummy) break CONDITION192;
+} // CONDLIST193 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION184
+} // CONDITION192
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_listOfEvenElems");
 }
@@ -4335,12 +4766,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION187:
+CONDITION195:
 while(javadummy) {
-// ***** begin condlist 188 (in cond 187) *****
-CONDLIST188: // @@@ begin of alternative group
+// ***** begin condlist 196 (in cond 195) *****
+CONDLIST196: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION189: // @@@ begin of alternative
+CONDITION197: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4375,17 +4806,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST188;
+if (javadummy) break CONDLIST196;
 // $$$$$$$$ 
-} // CONDITION189 // @@@ end of alternative
+} // CONDITION197 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=188 N=187
-if (javadummy) break CONDITION187;
-} // CONDLIST188 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=196 N=195
+if (javadummy) break CONDITION195;
+} // CONDLIST196 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION187
+} // CONDITION195
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_nrOfEqualNeighbors");
 }
@@ -4410,12 +4841,12 @@ JavaNode yy_inparam_2
 JavaNode IN2 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION190:
+CONDITION198:
 while(javadummy) {
-// ***** begin condlist 191 (in cond 190) *****
-CONDLIST191: // @@@ begin of alternative group
+// ***** begin condlist 199 (in cond 198) *****
+CONDLIST199: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION192: // @@@ begin of alternative
+CONDITION200: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4431,16 +4862,16 @@ IN2 = current0 ;
 JavaNode current0 = yy_inparam_2;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"succ"))
-   if (javadummy) break  CONDITION192;
+   if (javadummy) break  CONDITION200;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 193 (in cond 192) *****
-CONDLIST193: // @@@ begin of alternative group
+// ***** begin condlist 201 (in cond 200) *****
+CONDLIST201: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION194: // @@@ begin of alternative
+CONDITION202: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -4451,12 +4882,12 @@ IN1
 IN2
 )
 )
-if (javadummy) break CONDITION194;
+if (javadummy) break CONDITION202;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST193;
+if (javadummy) break CONDLIST201;
 // $$$$$$$$ 
-} // CONDITION194 // @@@ end of alternative
-CONDITION195: // @@@ begin of alternative
+} // CONDITION202 // @@@ end of alternative
+CONDITION203: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 ermLI
@@ -4468,19 +4899,19 @@ IN1
 IN2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST193;
+if (javadummy) break CONDLIST201;
 // $$$$$$$$ 
-} // CONDITION195 // @@@ end of alternative
+} // CONDITION203 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=193 N=192
-if (javadummy) break CONDITION192;
-} // CONDLIST193 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=201 N=200
+if (javadummy) break CONDITION200;
+} // CONDLIST201 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST191;
+if (javadummy) break CONDLIST199;
 // $$$$$$$$ 
-} // CONDITION192 // @@@ end of alternative
-CONDITION196: // @@@ begin of alternative
+} // CONDITION200 // @@@ end of alternative
+CONDITION204: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4496,16 +4927,16 @@ IN2 = current0 ;
 JavaNode current0 = yy_inparam_2;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"fail"))
-   if (javadummy) break  CONDITION196;
+   if (javadummy) break  CONDITION204;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 197 (in cond 196) *****
-CONDLIST197: // @@@ begin of alternative group
+// ***** begin condlist 205 (in cond 204) *****
+CONDLIST205: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION198: // @@@ begin of alternative
+CONDITION206: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -4516,7 +4947,7 @@ IN1
 IN2
 )
 )
-if (javadummy) break CONDITION198;
+if (javadummy) break CONDITION206;
 Procs.
 ermLI
 (
@@ -4527,26 +4958,26 @@ IN1
 IN2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST197;
+if (javadummy) break CONDLIST205;
 // $$$$$$$$ 
-} // CONDITION198 // @@@ end of alternative
+} // CONDITION206 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=197 N=196
-if (javadummy) break CONDLIST197;
-} // CONDLIST197 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=205 N=204
+if (javadummy) break CONDLIST205;
+} // CONDLIST205 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST191;
+if (javadummy) break CONDLIST199;
 // $$$$$$$$ 
-} // CONDITION196 // @@@ end of alternative
+} // CONDITION204 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=191 N=190
-if (javadummy) break CONDITION190;
-} // CONDLIST191 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=199 N=198
+if (javadummy) break CONDITION198;
+} // CONDLIST199 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION190
+} // CONDITION198
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_containsElem");
 }
@@ -4571,12 +5002,12 @@ JavaNode yy_inparam_2
 JavaNode IN2 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION199:
+CONDITION207:
 while(javadummy) {
-// ***** begin condlist 200 (in cond 199) *****
-CONDLIST200: // @@@ begin of alternative group
+// ***** begin condlist 208 (in cond 207) *****
+CONDLIST208: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION201: // @@@ begin of alternative
+CONDITION209: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4592,16 +5023,16 @@ IN2 = current0 ;
 JavaNode current0 = yy_inparam_2;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"succ"))
-   if (javadummy) break  CONDITION201;
+   if (javadummy) break  CONDITION209;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 202 (in cond 201) *****
-CONDLIST202: // @@@ begin of alternative group
+// ***** begin condlist 210 (in cond 209) *****
+CONDLIST210: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION203: // @@@ begin of alternative
+CONDITION211: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -4612,12 +5043,12 @@ IN1
 IN2
 )
 )
-if (javadummy) break CONDITION203;
+if (javadummy) break CONDITION211;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST202;
+if (javadummy) break CONDLIST210;
 // $$$$$$$$ 
-} // CONDITION203 // @@@ end of alternative
-CONDITION204: // @@@ begin of alternative
+} // CONDITION211 // @@@ end of alternative
+CONDITION212: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 ermLL
@@ -4629,19 +5060,19 @@ IN1
 IN2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST202;
+if (javadummy) break CONDLIST210;
 // $$$$$$$$ 
-} // CONDITION204 // @@@ end of alternative
+} // CONDITION212 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=202 N=201
-if (javadummy) break CONDITION201;
-} // CONDLIST202 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=210 N=209
+if (javadummy) break CONDITION209;
+} // CONDLIST210 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST200;
+if (javadummy) break CONDLIST208;
 // $$$$$$$$ 
-} // CONDITION201 // @@@ end of alternative
-CONDITION205: // @@@ begin of alternative
+} // CONDITION209 // @@@ end of alternative
+CONDITION213: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4657,16 +5088,16 @@ IN2 = current0 ;
 JavaNode current0 = yy_inparam_2;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"fail"))
-   if (javadummy) break  CONDITION205;
+   if (javadummy) break  CONDITION213;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 206 (in cond 205) *****
-CONDLIST206: // @@@ begin of alternative group
+// ***** begin condlist 214 (in cond 213) *****
+CONDLIST214: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION207: // @@@ begin of alternative
+CONDITION215: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -4677,7 +5108,7 @@ IN1
 IN2
 )
 )
-if (javadummy) break CONDITION207;
+if (javadummy) break CONDITION215;
 Procs.
 ermLL
 (
@@ -4688,26 +5119,26 @@ IN1
 IN2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST206;
+if (javadummy) break CONDLIST214;
 // $$$$$$$$ 
-} // CONDITION207 // @@@ end of alternative
+} // CONDITION215 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=206 N=205
-if (javadummy) break CONDLIST206;
-} // CONDLIST206 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=214 N=213
+if (javadummy) break CONDLIST214;
+} // CONDLIST214 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST200;
+if (javadummy) break CONDLIST208;
 // $$$$$$$$ 
-} // CONDITION205 // @@@ end of alternative
+} // CONDITION213 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=200 N=199
-if (javadummy) break CONDITION199;
-} // CONDLIST200 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=208 N=207
+if (javadummy) break CONDITION207;
+} // CONDLIST208 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION199
+} // CONDITION207
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_containsList");
 }
@@ -4727,12 +5158,12 @@ JavaNode yy_inparam_1
 {
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION208:
+CONDITION216:
 while(javadummy) {
-// ***** begin condlist 209 (in cond 208) *****
-CONDLIST209: // @@@ begin of alternative group
+// ***** begin condlist 217 (in cond 216) *****
+CONDLIST217: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION210: // @@@ begin of alternative
+CONDITION218: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4743,16 +5174,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"succ"))
-   if (javadummy) break  CONDITION210;
+   if (javadummy) break  CONDITION218;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 211 (in cond 210) *****
-CONDLIST211: // @@@ begin of alternative group
+// ***** begin condlist 219 (in cond 218) *****
+CONDLIST219: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION212: // @@@ begin of alternative
+CONDITION220: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -4761,12 +5192,12 @@ containsEqualElems
 IN1
 )
 )
-if (javadummy) break CONDITION212;
+if (javadummy) break CONDITION220;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST211;
+if (javadummy) break CONDLIST219;
 // $$$$$$$$ 
-} // CONDITION212 // @@@ end of alternative
-CONDITION213: // @@@ begin of alternative
+} // CONDITION220 // @@@ end of alternative
+CONDITION221: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 ermL
@@ -4776,19 +5207,19 @@ new JavaStringValue( "containsEqualElems failed" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST211;
+if (javadummy) break CONDLIST219;
 // $$$$$$$$ 
-} // CONDITION213 // @@@ end of alternative
+} // CONDITION221 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=211 N=210
-if (javadummy) break CONDITION210;
-} // CONDLIST211 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=219 N=218
+if (javadummy) break CONDITION218;
+} // CONDLIST219 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST209;
+if (javadummy) break CONDLIST217;
 // $$$$$$$$ 
-} // CONDITION210 // @@@ end of alternative
-CONDITION214: // @@@ begin of alternative
+} // CONDITION218 // @@@ end of alternative
+CONDITION222: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4799,16 +5230,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"fail"))
-   if (javadummy) break  CONDITION214;
+   if (javadummy) break  CONDITION222;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 215 (in cond 214) *****
-CONDLIST215: // @@@ begin of alternative group
+// ***** begin condlist 223 (in cond 222) *****
+CONDLIST223: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION216: // @@@ begin of alternative
+CONDITION224: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -4817,7 +5248,7 @@ containsEqualElems
 IN1
 )
 )
-if (javadummy) break CONDITION216;
+if (javadummy) break CONDITION224;
 Procs.
 ermL
 (
@@ -4826,26 +5257,26 @@ new JavaStringValue( "containsEqualElems succeeded" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST215;
+if (javadummy) break CONDLIST223;
 // $$$$$$$$ 
-} // CONDITION216 // @@@ end of alternative
+} // CONDITION224 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=215 N=214
-if (javadummy) break CONDLIST215;
-} // CONDLIST215 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=223 N=222
+if (javadummy) break CONDLIST223;
+} // CONDLIST223 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST209;
+if (javadummy) break CONDLIST217;
 // $$$$$$$$ 
-} // CONDITION214 // @@@ end of alternative
+} // CONDITION222 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=209 N=208
-if (javadummy) break CONDITION208;
-} // CONDLIST209 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=217 N=216
+if (javadummy) break CONDITION216;
+} // CONDLIST217 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION208
+} // CONDITION216
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_containsEqualElems");
 }
@@ -4870,12 +5301,12 @@ JavaNode yy_inparam_2
 JavaNode IN2 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION217:
+CONDITION225:
 while(javadummy) {
-// ***** begin condlist 218 (in cond 217) *****
-CONDLIST218: // @@@ begin of alternative group
+// ***** begin condlist 226 (in cond 225) *****
+CONDLIST226: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION219: // @@@ begin of alternative
+CONDITION227: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4891,16 +5322,16 @@ IN2 = current0 ;
 JavaNode current0 = yy_inparam_2;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"succ"))
-   if (javadummy) break  CONDITION219;
+   if (javadummy) break  CONDITION227;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 220 (in cond 219) *****
-CONDLIST220: // @@@ begin of alternative group
+// ***** begin condlist 228 (in cond 227) *****
+CONDLIST228: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION221: // @@@ begin of alternative
+CONDITION229: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -4911,12 +5342,12 @@ IN1
 IN2
 )
 )
-if (javadummy) break CONDITION221;
+if (javadummy) break CONDITION229;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST220;
+if (javadummy) break CONDLIST228;
 // $$$$$$$$ 
-} // CONDITION221 // @@@ end of alternative
-CONDITION222: // @@@ begin of alternative
+} // CONDITION229 // @@@ end of alternative
+CONDITION230: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 ermLL
@@ -4928,19 +5359,19 @@ IN1
 IN2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST220;
+if (javadummy) break CONDLIST228;
 // $$$$$$$$ 
-} // CONDITION222 // @@@ end of alternative
+} // CONDITION230 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=220 N=219
-if (javadummy) break CONDITION219;
-} // CONDLIST220 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=228 N=227
+if (javadummy) break CONDITION227;
+} // CONDLIST228 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST218;
+if (javadummy) break CONDLIST226;
 // $$$$$$$$ 
-} // CONDITION219 // @@@ end of alternative
-CONDITION223: // @@@ begin of alternative
+} // CONDITION227 // @@@ end of alternative
+CONDITION231: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -4956,16 +5387,16 @@ IN2 = current0 ;
 JavaNode current0 = yy_inparam_2;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"fail"))
-   if (javadummy) break  CONDITION223;
+   if (javadummy) break  CONDITION231;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 224 (in cond 223) *****
-CONDLIST224: // @@@ begin of alternative group
+// ***** begin condlist 232 (in cond 231) *****
+CONDLIST232: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION225: // @@@ begin of alternative
+CONDITION233: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -4976,7 +5407,7 @@ IN1
 IN2
 )
 )
-if (javadummy) break CONDITION225;
+if (javadummy) break CONDITION233;
 Procs.
 ermLL
 (
@@ -4987,26 +5418,26 @@ IN1
 IN2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST224;
+if (javadummy) break CONDLIST232;
 // $$$$$$$$ 
-} // CONDITION225 // @@@ end of alternative
+} // CONDITION233 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=224 N=223
-if (javadummy) break CONDLIST224;
-} // CONDLIST224 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=232 N=231
+if (javadummy) break CONDLIST232;
+} // CONDLIST232 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST218;
+if (javadummy) break CONDLIST226;
 // $$$$$$$$ 
-} // CONDITION223 // @@@ end of alternative
+} // CONDITION231 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=218 N=217
-if (javadummy) break CONDITION217;
-} // CONDLIST218 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=226 N=225
+if (javadummy) break CONDITION225;
+} // CONDLIST226 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION217
+} // CONDITION225
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_containEqualElems");
 }
@@ -5026,12 +5457,12 @@ JavaNode yy_inparam_1
 {
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION226:
+CONDITION234:
 while(javadummy) {
-// ***** begin condlist 227 (in cond 226) *****
-CONDLIST227: // @@@ begin of alternative group
+// ***** begin condlist 235 (in cond 234) *****
+CONDLIST235: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION228: // @@@ begin of alternative
+CONDITION236: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5042,16 +5473,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"succ"))
-   if (javadummy) break  CONDITION228;
+   if (javadummy) break  CONDITION236;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 229 (in cond 228) *****
-CONDLIST229: // @@@ begin of alternative group
+// ***** begin condlist 237 (in cond 236) *****
+CONDLIST237: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION230: // @@@ begin of alternative
+CONDITION238: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -5060,12 +5491,12 @@ isSortedAscending
 IN1
 )
 )
-if (javadummy) break CONDITION230;
+if (javadummy) break CONDITION238;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST229;
+if (javadummy) break CONDLIST237;
 // $$$$$$$$ 
-} // CONDITION230 // @@@ end of alternative
-CONDITION231: // @@@ begin of alternative
+} // CONDITION238 // @@@ end of alternative
+CONDITION239: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 ermL
@@ -5075,19 +5506,19 @@ new JavaStringValue( "isSortedAscending failed" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST229;
+if (javadummy) break CONDLIST237;
 // $$$$$$$$ 
-} // CONDITION231 // @@@ end of alternative
+} // CONDITION239 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=229 N=228
-if (javadummy) break CONDITION228;
-} // CONDLIST229 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=237 N=236
+if (javadummy) break CONDITION236;
+} // CONDLIST237 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST227;
+if (javadummy) break CONDLIST235;
 // $$$$$$$$ 
-} // CONDITION228 // @@@ end of alternative
-CONDITION232: // @@@ begin of alternative
+} // CONDITION236 // @@@ end of alternative
+CONDITION240: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5098,16 +5529,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"fail"))
-   if (javadummy) break  CONDITION232;
+   if (javadummy) break  CONDITION240;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 233 (in cond 232) *****
-CONDLIST233: // @@@ begin of alternative group
+// ***** begin condlist 241 (in cond 240) *****
+CONDLIST241: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION234: // @@@ begin of alternative
+CONDITION242: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -5116,7 +5547,7 @@ isSortedAscending
 IN1
 )
 )
-if (javadummy) break CONDITION234;
+if (javadummy) break CONDITION242;
 Procs.
 ermL
 (
@@ -5125,26 +5556,26 @@ new JavaStringValue( "isSortedAscending succeeded" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST233;
+if (javadummy) break CONDLIST241;
 // $$$$$$$$ 
-} // CONDITION234 // @@@ end of alternative
+} // CONDITION242 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=233 N=232
-if (javadummy) break CONDLIST233;
-} // CONDLIST233 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=241 N=240
+if (javadummy) break CONDLIST241;
+} // CONDLIST241 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST227;
+if (javadummy) break CONDLIST235;
 // $$$$$$$$ 
-} // CONDITION232 // @@@ end of alternative
+} // CONDITION240 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=227 N=226
-if (javadummy) break CONDITION226;
-} // CONDLIST227 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=235 N=234
+if (javadummy) break CONDITION234;
+} // CONDLIST235 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION226
+} // CONDITION234
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_isSortedAscending");
 }
@@ -5164,12 +5595,12 @@ JavaNode yy_inparam_1
 {
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION235:
+CONDITION243:
 while(javadummy) {
-// ***** begin condlist 236 (in cond 235) *****
-CONDLIST236: // @@@ begin of alternative group
+// ***** begin condlist 244 (in cond 243) *****
+CONDLIST244: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION237: // @@@ begin of alternative
+CONDITION245: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5180,16 +5611,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"succ"))
-   if (javadummy) break  CONDITION237;
+   if (javadummy) break  CONDITION245;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 238 (in cond 237) *****
-CONDLIST238: // @@@ begin of alternative group
+// ***** begin condlist 246 (in cond 245) *****
+CONDLIST246: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION239: // @@@ begin of alternative
+CONDITION247: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -5198,12 +5629,12 @@ isSortedDescending
 IN1
 )
 )
-if (javadummy) break CONDITION239;
+if (javadummy) break CONDITION247;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST238;
+if (javadummy) break CONDLIST246;
 // $$$$$$$$ 
-} // CONDITION239 // @@@ end of alternative
-CONDITION240: // @@@ begin of alternative
+} // CONDITION247 // @@@ end of alternative
+CONDITION248: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 ermL
@@ -5213,19 +5644,19 @@ new JavaStringValue( "isSortedDescending failed" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST238;
+if (javadummy) break CONDLIST246;
 // $$$$$$$$ 
-} // CONDITION240 // @@@ end of alternative
+} // CONDITION248 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=238 N=237
-if (javadummy) break CONDITION237;
-} // CONDLIST238 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=246 N=245
+if (javadummy) break CONDITION245;
+} // CONDLIST246 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST236;
+if (javadummy) break CONDLIST244;
 // $$$$$$$$ 
-} // CONDITION237 // @@@ end of alternative
-CONDITION241: // @@@ begin of alternative
+} // CONDITION245 // @@@ end of alternative
+CONDITION249: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5236,16 +5667,16 @@ IN1 = current0 ;
 JavaNode current0 = yy_inparam_1;
 //JJ.M5
 if (! JavaStringValue.MatchesString(current0,"fail"))
-   if (javadummy) break  CONDITION241;
+   if (javadummy) break  CONDITION249;
 };
 Procs.
 incTests
 (
 );
-// ***** begin condlist 242 (in cond 241) *****
-CONDLIST242: // @@@ begin of alternative group
+// ***** begin condlist 250 (in cond 249) *****
+CONDLIST250: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION243: // @@@ begin of alternative
+CONDITION251: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -5254,7 +5685,7 @@ isSortedDescending
 IN1
 )
 )
-if (javadummy) break CONDITION243;
+if (javadummy) break CONDITION251;
 Procs.
 ermL
 (
@@ -5263,26 +5694,26 @@ new JavaStringValue( "isSortedDescending succeeded" )
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST242;
+if (javadummy) break CONDLIST250;
 // $$$$$$$$ 
-} // CONDITION243 // @@@ end of alternative
+} // CONDITION251 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=242 N=241
-if (javadummy) break CONDLIST242;
-} // CONDLIST242 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=250 N=249
+if (javadummy) break CONDLIST250;
+} // CONDLIST250 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST236;
+if (javadummy) break CONDLIST244;
 // $$$$$$$$ 
-} // CONDITION241 // @@@ end of alternative
+} // CONDITION249 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=236 N=235
-if (javadummy) break CONDITION235;
-} // CONDLIST236 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=244 N=243
+if (javadummy) break CONDITION243;
+} // CONDLIST244 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION235
+} // CONDITION243
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_isSortedDescending");
 }
@@ -5306,12 +5737,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION244:
+CONDITION252:
 while(javadummy) {
-// ***** begin condlist 245 (in cond 244) *****
-CONDLIST245: // @@@ begin of alternative group
+// ***** begin condlist 253 (in cond 252) *****
+CONDLIST253: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION246: // @@@ begin of alternative
+CONDITION254: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5346,17 +5777,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST245;
+if (javadummy) break CONDLIST253;
 // $$$$$$$$ 
-} // CONDITION246 // @@@ end of alternative
+} // CONDITION254 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=245 N=244
-if (javadummy) break CONDITION244;
-} // CONDLIST245 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=253 N=252
+if (javadummy) break CONDITION252;
+} // CONDLIST253 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION244
+} // CONDITION252
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_firstElem");
 }
@@ -5380,12 +5811,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION247:
+CONDITION255:
 while(javadummy) {
-// ***** begin condlist 248 (in cond 247) *****
-CONDLIST248: // @@@ begin of alternative group
+// ***** begin condlist 256 (in cond 255) *****
+CONDLIST256: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION249: // @@@ begin of alternative
+CONDITION257: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5420,17 +5851,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST248;
+if (javadummy) break CONDLIST256;
 // $$$$$$$$ 
-} // CONDITION249 // @@@ end of alternative
+} // CONDITION257 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=248 N=247
-if (javadummy) break CONDITION247;
-} // CONDLIST248 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=256 N=255
+if (javadummy) break CONDITION255;
+} // CONDLIST256 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION247
+} // CONDITION255
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_butFirstElem");
 }
@@ -5454,12 +5885,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION250:
+CONDITION258:
 while(javadummy) {
-// ***** begin condlist 251 (in cond 250) *****
-CONDLIST251: // @@@ begin of alternative group
+// ***** begin condlist 259 (in cond 258) *****
+CONDLIST259: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION252: // @@@ begin of alternative
+CONDITION260: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5494,17 +5925,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST251;
+if (javadummy) break CONDLIST259;
 // $$$$$$$$ 
-} // CONDITION252 // @@@ end of alternative
+} // CONDITION260 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=251 N=250
-if (javadummy) break CONDITION250;
-} // CONDLIST251 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=259 N=258
+if (javadummy) break CONDITION258;
+} // CONDLIST259 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION250
+} // CONDITION258
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_lastElem");
 }
@@ -5528,12 +5959,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION253:
+CONDITION261:
 while(javadummy) {
-// ***** begin condlist 254 (in cond 253) *****
-CONDLIST254: // @@@ begin of alternative group
+// ***** begin condlist 262 (in cond 261) *****
+CONDLIST262: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION255: // @@@ begin of alternative
+CONDITION263: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5568,17 +5999,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST254;
+if (javadummy) break CONDLIST262;
 // $$$$$$$$ 
-} // CONDITION255 // @@@ end of alternative
+} // CONDITION263 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=254 N=253
-if (javadummy) break CONDITION253;
-} // CONDLIST254 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=262 N=261
+if (javadummy) break CONDITION261;
+} // CONDLIST262 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION253
+} // CONDITION261
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_butLastElem");
 }
@@ -5602,12 +6033,12 @@ JavaNode FND1 = null;
 JavaNode EXP1 = null;
 // DECLARE for proc IN1
 JavaNode IN1 = null;
-CONDITION256:
+CONDITION264:
 while(javadummy) {
-// ***** begin condlist 257 (in cond 256) *****
-CONDLIST257: // @@@ begin of alternative group
+// ***** begin condlist 265 (in cond 264) *****
+CONDLIST265: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION258: // @@@ begin of alternative
+CONDITION266: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5642,17 +6073,17 @@ EXP1
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST257;
+if (javadummy) break CONDLIST265;
 // $$$$$$$$ 
-} // CONDITION258 // @@@ end of alternative
+} // CONDITION266 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=257 N=256
-if (javadummy) break CONDITION256;
-} // CONDLIST257 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=265 N=264
+if (javadummy) break CONDITION264;
+} // CONDLIST265 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION256
+} // CONDITION264
 // failed:
 JavaLib.rtsAllAlternativesFailed("tst_reverse");
 }
@@ -5684,12 +6115,12 @@ JavaNode EXP1 = null;
 JavaNode IN1 = null;
 // DECLARE for proc PRED
 JavaNode PRED = null;
-CONDITION259:
+CONDITION267:
 while(javadummy) {
-// ***** begin condlist 260 (in cond 259) *****
-CONDLIST260: // @@@ begin of alternative group
+// ***** begin condlist 268 (in cond 267) *****
+CONDLIST268: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION261: // @@@ begin of alternative
+CONDITION269: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5715,10 +6146,10 @@ Procs.
 incTests
 (
 );
-// ***** begin condlist 262 (in cond 261) *****
-CONDLIST262: // @@@ begin of alternative group
+// ***** begin condlist 270 (in cond 269) *****
+CONDLIST270: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION263: // @@@ begin of alternative
+CONDITION271: // @@@ begin of alternative
 while(javadummy) {
 {
 if (! JavaLib.rtsEqualInt(
@@ -5727,13 +6158,13 @@ EXP1
 FND1
 )
 )
-   if (javadummy) break  CONDITION263;
+   if (javadummy) break  CONDITION271;
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST262;
+if (javadummy) break CONDLIST270;
 // $$$$$$$$ 
-} // CONDITION263 // @@@ end of alternative
-CONDITION264: // @@@ begin of alternative
+} // CONDITION271 // @@@ end of alternative
+CONDITION272: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 incFailures
@@ -5773,26 +6204,26 @@ FND1
 JavaLib.rtsEmitCode
 ("\n");
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST262;
+if (javadummy) break CONDLIST270;
 // $$$$$$$$ 
-} // CONDITION264 // @@@ end of alternative
+} // CONDITION272 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=262 N=261
-if (javadummy) break CONDITION261;
-} // CONDLIST262 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=270 N=269
+if (javadummy) break CONDITION269;
+} // CONDLIST270 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST260;
+if (javadummy) break CONDLIST268;
 // $$$$$$$$ 
-} // CONDITION261 // @@@ end of alternative
+} // CONDITION269 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=260 N=259
-if (javadummy) break CONDITION259;
-} // CONDLIST260 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=268 N=267
+if (javadummy) break CONDITION267;
+} // CONDLIST268 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION259
+} // CONDITION267
 // failed:
 JavaLib.rtsAllAlternativesFailed("tstL_I");
 }
@@ -5834,12 +6265,12 @@ JavaNode EXP1 = null;
 JavaNode IN1 = null;
 // DECLARE for proc PRED
 JavaNode PRED = null;
-CONDITION265:
+CONDITION273:
 while(javadummy) {
-// ***** begin condlist 266 (in cond 265) *****
-CONDLIST266: // @@@ begin of alternative group
+// ***** begin condlist 274 (in cond 273) *****
+CONDLIST274: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION267: // @@@ begin of alternative
+CONDITION275: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -5875,10 +6306,10 @@ Procs.
 incTests
 (
 );
-// ***** begin condlist 268 (in cond 267) *****
-CONDLIST268: // @@@ begin of alternative group
+// ***** begin condlist 276 (in cond 275) *****
+CONDLIST276: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION269: // @@@ begin of alternative
+CONDITION277: // @@@ begin of alternative
 while(javadummy) {
 {
 if (! JavaLib.rtsEqualInt(
@@ -5887,7 +6318,7 @@ EXP1
 FND1
 )
 )
-   if (javadummy) break  CONDITION269;
+   if (javadummy) break  CONDITION277;
 };
 {
 if (! JavaLib.rtsEqualInt(
@@ -5896,13 +6327,13 @@ EXP2
 FND2
 )
 )
-   if (javadummy) break  CONDITION269;
+   if (javadummy) break  CONDITION277;
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST268;
+if (javadummy) break CONDLIST276;
 // $$$$$$$$ 
-} // CONDITION269 // @@@ end of alternative
-CONDITION270: // @@@ begin of alternative
+} // CONDITION277 // @@@ end of alternative
+CONDITION278: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 incFailures
@@ -5958,26 +6389,26 @@ FND2
 JavaLib.rtsEmitCode
 ("\n");
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST268;
+if (javadummy) break CONDLIST276;
 // $$$$$$$$ 
-} // CONDITION270 // @@@ end of alternative
+} // CONDITION278 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=268 N=267
-if (javadummy) break CONDITION267;
-} // CONDLIST268 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=276 N=275
+if (javadummy) break CONDITION275;
+} // CONDLIST276 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST266;
+if (javadummy) break CONDLIST274;
 // $$$$$$$$ 
-} // CONDITION267 // @@@ end of alternative
+} // CONDITION275 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=266 N=265
-if (javadummy) break CONDITION265;
-} // CONDLIST266 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=274 N=273
+if (javadummy) break CONDITION273;
+} // CONDLIST274 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION265
+} // CONDITION273
 // failed:
 JavaLib.rtsAllAlternativesFailed("tstL_II");
 }
@@ -6009,12 +6440,12 @@ JavaNode EXP1 = null;
 JavaNode IN1 = null;
 // DECLARE for proc PRED
 JavaNode PRED = null;
-CONDITION271:
+CONDITION279:
 while(javadummy) {
-// ***** begin condlist 272 (in cond 271) *****
-CONDLIST272: // @@@ begin of alternative group
+// ***** begin condlist 280 (in cond 279) *****
+CONDLIST280: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION273: // @@@ begin of alternative
+CONDITION281: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -6040,10 +6471,10 @@ Procs.
 incTests
 (
 );
-// ***** begin condlist 274 (in cond 273) *****
-CONDLIST274: // @@@ begin of alternative group
+// ***** begin condlist 282 (in cond 281) *****
+CONDLIST282: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION275: // @@@ begin of alternative
+CONDITION283: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -6054,12 +6485,12 @@ EXP1
 FND1
 )
 )
-if (javadummy) break CONDITION275;
+if (javadummy) break CONDITION283;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST274;
+if (javadummy) break CONDLIST282;
 // $$$$$$$$ 
-} // CONDITION275 // @@@ end of alternative
-CONDITION276: // @@@ begin of alternative
+} // CONDITION283 // @@@ end of alternative
+CONDITION284: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 incFailures
@@ -6097,26 +6528,26 @@ output
 FND1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST274;
+if (javadummy) break CONDLIST282;
 // $$$$$$$$ 
-} // CONDITION276 // @@@ end of alternative
+} // CONDITION284 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=274 N=273
-if (javadummy) break CONDITION273;
-} // CONDLIST274 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=282 N=281
+if (javadummy) break CONDITION281;
+} // CONDLIST282 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST272;
+if (javadummy) break CONDLIST280;
 // $$$$$$$$ 
-} // CONDITION273 // @@@ end of alternative
+} // CONDITION281 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=272 N=271
-if (javadummy) break CONDITION271;
-} // CONDLIST272 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=280 N=279
+if (javadummy) break CONDITION279;
+} // CONDLIST280 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION271
+} // CONDITION279
 // failed:
 JavaLib.rtsAllAlternativesFailed("tstL_L");
 }
@@ -6158,12 +6589,12 @@ JavaNode EXP1 = null;
 JavaNode IN1 = null;
 // DECLARE for proc PRED
 JavaNode PRED = null;
-CONDITION277:
+CONDITION285:
 while(javadummy) {
-// ***** begin condlist 278 (in cond 277) *****
-CONDLIST278: // @@@ begin of alternative group
+// ***** begin condlist 286 (in cond 285) *****
+CONDLIST286: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION279: // @@@ begin of alternative
+CONDITION287: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -6199,10 +6630,10 @@ Procs.
 incTests
 (
 );
-// ***** begin condlist 280 (in cond 279) *****
-CONDLIST280: // @@@ begin of alternative group
+// ***** begin condlist 288 (in cond 287) *****
+CONDLIST288: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION281: // @@@ begin of alternative
+CONDITION289: // @@@ begin of alternative
 while(javadummy) {
 if (! 
 Procs.
@@ -6213,7 +6644,7 @@ EXP1
 FND1
 )
 )
-if (javadummy) break CONDITION281;
+if (javadummy) break CONDITION289;
 if (! 
 Procs.
 check
@@ -6223,12 +6654,12 @@ EXP2
 FND2
 )
 )
-if (javadummy) break CONDITION281;
+if (javadummy) break CONDITION289;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST280;
+if (javadummy) break CONDLIST288;
 // $$$$$$$$ 
-} // CONDITION281 // @@@ end of alternative
-CONDITION282: // @@@ begin of alternative
+} // CONDITION289 // @@@ end of alternative
+CONDITION290: // @@@ begin of alternative
 while(javadummy) {
 Procs.
 incFailures
@@ -6280,26 +6711,26 @@ output
 FND2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST280;
+if (javadummy) break CONDLIST288;
 // $$$$$$$$ 
-} // CONDITION282 // @@@ end of alternative
+} // CONDITION290 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=280 N=279
-if (javadummy) break CONDITION279;
-} // CONDLIST280 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=288 N=287
+if (javadummy) break CONDITION287;
+} // CONDLIST288 @@@ end of alternative group
 // *** CONTINUE ***
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST278;
+if (javadummy) break CONDLIST286;
 // $$$$$$$$ 
-} // CONDITION279 // @@@ end of alternative
+} // CONDITION287 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=278 N=277
-if (javadummy) break CONDITION277;
-} // CONDLIST278 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=286 N=285
+if (javadummy) break CONDITION285;
+} // CONDLIST286 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION277
+} // CONDITION285
 // failed:
 JavaLib.rtsAllAlternativesFailed("tstL_LL");
 }
@@ -6321,12 +6752,12 @@ JavaNode yy_inparam_1
 JavaNode IN1 = null;
 // DECLARE for proc MSG
 JavaNode MSG = null;
-CONDITION283:
+CONDITION291:
 while(javadummy) {
-// ***** begin condlist 284 (in cond 283) *****
-CONDLIST284: // @@@ begin of alternative group
+// ***** begin condlist 292 (in cond 291) *****
+CONDLIST292: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION285: // @@@ begin of alternative
+CONDITION293: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -6363,17 +6794,17 @@ IN1
 JavaLib.rtsEmitCode
 ("\n");
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST284;
+if (javadummy) break CONDLIST292;
 // $$$$$$$$ 
-} // CONDITION285 // @@@ end of alternative
+} // CONDITION293 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=284 N=283
-if (javadummy) break CONDITION283;
-} // CONDLIST284 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=292 N=291
+if (javadummy) break CONDITION291;
+} // CONDLIST292 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION283
+} // CONDITION291
 // failed:
 JavaLib.rtsAllAlternativesFailed("ermI");
 }
@@ -6395,12 +6826,12 @@ JavaNode yy_inparam_1
 JavaNode IN1 = null;
 // DECLARE for proc MSG
 JavaNode MSG = null;
-CONDITION286:
+CONDITION294:
 while(javadummy) {
-// ***** begin condlist 287 (in cond 286) *****
-CONDLIST287: // @@@ begin of alternative group
+// ***** begin condlist 295 (in cond 294) *****
+CONDLIST295: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION288: // @@@ begin of alternative
+CONDITION296: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -6436,17 +6867,17 @@ output
 IN1
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST287;
+if (javadummy) break CONDLIST295;
 // $$$$$$$$ 
-} // CONDITION288 // @@@ end of alternative
+} // CONDITION296 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=287 N=286
-if (javadummy) break CONDITION286;
-} // CONDLIST287 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=295 N=294
+if (javadummy) break CONDITION294;
+} // CONDLIST295 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION286
+} // CONDITION294
 // failed:
 JavaLib.rtsAllAlternativesFailed("ermL");
 }
@@ -6473,12 +6904,12 @@ JavaNode IN2 = null;
 JavaNode IN1 = null;
 // DECLARE for proc MSG
 JavaNode MSG = null;
-CONDITION289:
+CONDITION297:
 while(javadummy) {
-// ***** begin condlist 290 (in cond 289) *****
-CONDLIST290: // @@@ begin of alternative group
+// ***** begin condlist 298 (in cond 297) *****
+CONDLIST298: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION291: // @@@ begin of alternative
+CONDITION299: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -6527,17 +6958,17 @@ IN2
 JavaLib.rtsEmitCode
 ("\n");
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST290;
+if (javadummy) break CONDLIST298;
 // $$$$$$$$ 
-} // CONDITION291 // @@@ end of alternative
+} // CONDITION299 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=290 N=289
-if (javadummy) break CONDITION289;
-} // CONDLIST290 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=298 N=297
+if (javadummy) break CONDITION297;
+} // CONDLIST298 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION289
+} // CONDITION297
 // failed:
 JavaLib.rtsAllAlternativesFailed("ermLI");
 }
@@ -6564,12 +6995,12 @@ JavaNode IN2 = null;
 JavaNode IN1 = null;
 // DECLARE for proc MSG
 JavaNode MSG = null;
-CONDITION292:
+CONDITION300:
 while(javadummy) {
-// ***** begin condlist 293 (in cond 292) *****
-CONDLIST293: // @@@ begin of alternative group
+// ***** begin condlist 301 (in cond 300) *****
+CONDLIST301: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION294: // @@@ begin of alternative
+CONDITION302: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
@@ -6617,17 +7048,17 @@ output
 IN2
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST293;
+if (javadummy) break CONDLIST301;
 // $$$$$$$$ 
-} // CONDITION294 // @@@ end of alternative
+} // CONDITION302 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=293 N=292
-if (javadummy) break CONDITION292;
-} // CONDLIST293 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=301 N=300
+if (javadummy) break CONDITION300;
+} // CONDLIST301 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION292
+} // CONDITION300
 // failed:
 JavaLib.rtsAllAlternativesFailed("ermLL");
 }
@@ -6642,26 +7073,26 @@ output(
 JavaNode yy_inparam_0
 )
 {
-CONDITION295:
+CONDITION303:
 while(javadummy) {
-// ***** begin condlist 296 (in cond 295) *****
-CONDLIST296: // @@@ begin of alternative group
+// ***** begin condlist 304 (in cond 303) *****
+CONDLIST304: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION297: // @@@ begin of alternative
+CONDITION305: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
 if (current0.Name
 != "NilOf-int")
-if (javadummy) break CONDITION297;
+if (javadummy) break CONDITION305;
 };
 JavaLib.rtsEmitCode
 ("int[]\n");
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST296;
+if (javadummy) break CONDLIST304;
 // $$$$$$$$ 
-} // CONDITION297 // @@@ end of alternative
-CONDITION298: // @@@ begin of alternative
+} // CONDITION305 // @@@ end of alternative
+CONDITION306: // @@@ begin of alternative
 while(javadummy) {
 // DECLARE for alternative T
 JavaNode T= null;
@@ -6671,7 +7102,7 @@ JavaNode H= null;
 JavaNode current0 = yy_inparam_0;
 if (current0.Name
 != "SeqOf-int")
-if (javadummy) break CONDITION298;
+if (javadummy) break CONDITION306;
 { //(( children level 1
 JavaNode current1 =
    current0 .Child1[0];
@@ -6696,17 +7127,17 @@ T
 JavaLib.rtsEmitCode
 ("]\n");
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST296;
+if (javadummy) break CONDLIST304;
 // $$$$$$$$ 
-} // CONDITION298 // @@@ end of alternative
+} // CONDITION306 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=296 N=295
-if (javadummy) break CONDITION295;
-} // CONDLIST296 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=304 N=303
+if (javadummy) break CONDITION303;
+} // CONDLIST304 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION295
+} // CONDITION303
 // failed:
 JavaLib.rtsAllAlternativesFailed("output");
 }
@@ -6721,24 +7152,24 @@ output2(
 JavaNode yy_inparam_0
 )
 {
-CONDITION299:
+CONDITION307:
 while(javadummy) {
-// ***** begin condlist 300 (in cond 299) *****
-CONDLIST300: // @@@ begin of alternative group
+// ***** begin condlist 308 (in cond 307) *****
+CONDLIST308: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION301: // @@@ begin of alternative
+CONDITION309: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
 if (current0.Name
 != "NilOf-int")
-if (javadummy) break CONDITION301;
+if (javadummy) break CONDITION309;
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST300;
+if (javadummy) break CONDLIST308;
 // $$$$$$$$ 
-} // CONDITION301 // @@@ end of alternative
-CONDITION302: // @@@ begin of alternative
+} // CONDITION309 // @@@ end of alternative
+CONDITION310: // @@@ begin of alternative
 while(javadummy) {
 // DECLARE for alternative T
 JavaNode T= null;
@@ -6748,7 +7179,7 @@ JavaNode H= null;
 JavaNode current0 = yy_inparam_0;
 if (current0.Name
 != "SeqOf-int")
-if (javadummy) break CONDITION302;
+if (javadummy) break CONDITION310;
 { //(( children level 1
 JavaNode current1 =
    current0 .Child1[0];
@@ -6771,17 +7202,17 @@ output2
 T
 );
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST300;
+if (javadummy) break CONDLIST308;
 // $$$$$$$$ 
-} // CONDITION302 // @@@ end of alternative
+} // CONDITION310 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=300 N=299
-if (javadummy) break CONDITION299;
-} // CONDLIST300 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=308 N=307
+if (javadummy) break CONDITION307;
+} // CONDLIST308 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 if (javadummy) return;
-} // CONDITION299
+} // CONDITION307
 // failed:
 JavaLib.rtsAllAlternativesFailed("output2");
 }
@@ -6799,30 +7230,30 @@ JavaNode yy_inparam_0
 JavaNode yy_inparam_1
 )
 {
-CONDITION303:
+CONDITION311:
 while(javadummy) {
-// ***** begin condlist 304 (in cond 303) *****
-CONDLIST304: // @@@ begin of alternative group
+// ***** begin condlist 312 (in cond 311) *****
+CONDLIST312: // @@@ begin of alternative group
 while(javadummy) {
-CONDITION305: // @@@ begin of alternative
+CONDITION313: // @@@ begin of alternative
 while(javadummy) {
 {
 JavaNode current0 = yy_inparam_0;
 if (current0.Name
 != "NilOf-int")
-if (javadummy) break CONDITION305;
+if (javadummy) break CONDITION313;
 };
 {
 JavaNode current0 = yy_inparam_1;
 if (current0.Name
 != "NilOf-int")
-if (javadummy) break CONDITION305;
+if (javadummy) break CONDITION313;
 };
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST304;
+if (javadummy) break CONDLIST312;
 // $$$$$$$$ 
-} // CONDITION305 // @@@ end of alternative
-CONDITION306: // @@@ begin of alternative
+} // CONDITION313 // @@@ end of alternative
+CONDITION314: // @@@ begin of alternative
 while(javadummy) {
 // DECLARE for alternative T2
 JavaNode T2= null;
@@ -6836,7 +7267,7 @@ JavaNode H1= null;
 JavaNode current0 = yy_inparam_0;
 if (current0.Name
 != "SeqOf-int")
-if (javadummy) break CONDITION306;
+if (javadummy) break CONDITION314;
 { //(( children level 1
 JavaNode current1 =
    current0 .Child1[0];
@@ -6851,7 +7282,7 @@ T1 = current1 ;
 JavaNode current0 = yy_inparam_1;
 if (current0.Name
 != "SeqOf-int")
-if (javadummy) break CONDITION306;
+if (javadummy) break CONDITION314;
 { //(( children level 1
 JavaNode current1 =
    current0 .Child1[0];
@@ -6869,7 +7300,7 @@ H1
 H2
 )
 )
-   if (javadummy) break  CONDITION306;
+   if (javadummy) break  CONDITION314;
 };
 if (! 
 Procs.
@@ -6880,19 +7311,19 @@ T1
 T2
 )
 )
-if (javadummy) break CONDITION306;
+if (javadummy) break CONDITION314;
 // $$$$$$$$ java success: this alternative matched 
-if (javadummy) break CONDLIST304;
+if (javadummy) break CONDLIST312;
 // $$$$$$$$ 
-} // CONDITION306 // @@@ end of alternative
+} // CONDITION314 // @@@ end of alternative
 // $$$$$$$$ java failure: no alternative matched $$$$
-// *** ESCAPE *** CondListIndex=304 N=303
-if (javadummy) break CONDITION303;
-} // CONDLIST304 @@@ end of alternative group
+// *** ESCAPE *** CondListIndex=312 N=311
+if (javadummy) break CONDITION311;
+} // CONDLIST312 @@@ end of alternative group
 // *** CONTINUE ***
 // succeeded:
 return true;
-} // CONDITION303
+} // CONDITION311
 // failed:
 return false;
 }

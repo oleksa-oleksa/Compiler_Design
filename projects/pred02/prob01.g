@@ -90,19 +90,19 @@ root
    tst_minNegElem        (LIST2,  -7)
    tst_minNegElem        (int[],   0)
 
-//   tst_isOdd             (3, "succ")
-//   tst_isOdd             (6, "fail")
+   tst_isOdd             (3, "succ")
+   tst_isOdd             (6, "fail")
 
    tst_isEven            (6, "succ")
    tst_isEven            (3, "fail")
-//
-//    tst_nrOfEvenElems     (LIST1,   1)
-//    tst_nrOfEvenElems     (LIST2,   3)
-//    tst_nrOfEvenElems     (int[],   0)
-//
-//    tst_nrOfOddElems      (LIST1,   6)
-//    tst_nrOfOddElems      (LIST2,   4)
-//    tst_nrOfOddElems      (int[],   0)
+
+   tst_nrOfEvenElems     (LIST1,   1)
+   tst_nrOfEvenElems     (LIST2,   3)
+   tst_nrOfEvenElems     (int[],   0)
+
+   tst_nrOfOddElems      (LIST1,   6)
+   tst_nrOfOddElems      (LIST2,   4)
+   tst_nrOfOddElems      (int[],   0)
 //
 //    tst_nrsOfPosNegElems  (LIST1, 3, 3)
 //    tst_nrsOfPosNegElems  (LIST2, 3, 4)
@@ -266,25 +266,48 @@ proc minNegElem(list:int[] -> min:int)
 condition isEven(number:int)
    // Succeeds if number is even
   
-   rule isEven(0) : 
-   rule isEven(1) : error "Not even number", POS
-   rule isEven(n) : isEven(n - 2)
+   rule isEven(n) : mod(n, 2 -> k)
+		    Equal(k, 0)
+
+proc mod(a:int, b:int -> rem:int)
+
+  // For negative number
+   rule mod(a, b -> k) : Less(a , 0)
+                         GreaterOrEqual(b, a)
+                         mod(a + b, b -> k)
+
+  // For positive number
+   rule mod(a, b -> k) : GreaterOrEqual(a, b)
+                    mod(a - b, b -> k)
+   rule mod(a, b -> a) :
+
+
 
 // -------------------------------------------------------------------- 10
 condition isOdd(number:int)
    // Succeeds if number is odd
 
-   rule isOdd(n) : Greater(n, 1)
+   rule isOdd(n) : mod(n, 2 -> k)
+                    Equal(k, 1)
+
 // -------------------------------------------------------------------- 11
 proc nrOfEvenElems(list:int[] -> nrEven:int)
    // Computes the number of even elements (nrEven) in list.
+   rule nrOfEvenElems(int[] -> 0):
+   rule nrOfEvenElems(int[H::T] -> L + 1) : isEven(H)
+   					    nrOfEvenElems(T -> L)
+   rule nrOfEvenElems(int[H::T] -> L + 0) : isOdd(H) 
+					     nrOfEvenElems(T -> L)
 
-   rule nrOfEvenElems(L -> -999):
 // -------------------------------------------------------------------- 12
 proc nrOfOddElems(list:int[] -> nrOdd:int)
    // Computes the number of odd elements (nrOdd) in list.
 
-   rule nrOfOddElems(L -> -999):
+   rule nrOfOddElems(int[] -> 0):
+   rule nrOfOddElems(int[H::T] -> L + 1) :  isOdd(H)
+					    nrOfOddElems(T -> L)
+
+   rule nrOfOddElems(int[H::T] -> L + 0) : nrOfOddElems(T -> L)
 // -------------------------------------------------------------------- 13
 proc nrsOfPosNegElems(list:int[] -> nrPos:int, nrNeg:int)
    // Computes the number of positive elements (nrPos)
