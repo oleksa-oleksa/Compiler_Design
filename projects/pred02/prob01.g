@@ -69,32 +69,32 @@ root
    tst_nrOfPosElems      (LIST1,   3)
    tst_nrOfPosElems      (LIST2,   3)
    tst_nrOfPosElems      (int[],   0)
-//
-//    tst_nrOfNegElems      (LIST1,   3)
-//    tst_nrOfNegElems      (LIST2,   4)
-//    tst_nrOfNegElems      (int[],   0)
-//
-//    tst_sumOfPosElems     (LIST1,  15)
-//    tst_sumOfPosElems     (LIST2,  12)
-//    tst_sumOfPosElems     (int[],   0)
-//
-//    tst_sumOfNegElems     (LIST1,  -9)
-//    tst_sumOfNegElems     (LIST2, -16)
-//    tst_sumOfNegElems     (int[],   0)
-//
-//    tst_maxPosElem        (LIST1,   5)
-//    tst_maxPosElem        (LIST2,   6)
-//    tst_maxPosElem        (int[],   0)
-//
-//    tst_minNegElem        (LIST1,  -3)
-//    tst_minNegElem        (LIST2,  -7)
-//    tst_minNegElem        (int[],   0)
-//
-//    tst_isOdd             (3, "succ")
-//    tst_isOdd             (6, "fail")
-//
-//    tst_isEven            (6, "succ")
-//    tst_isEven            (3, "fail")
+
+   tst_nrOfNegElems      (LIST1,   3)
+   tst_nrOfNegElems      (LIST2,   4)
+   tst_nrOfNegElems      (int[],   0)
+
+   tst_sumOfPosElems     (LIST1,  15)
+   tst_sumOfPosElems     (LIST2,  12)
+   tst_sumOfPosElems     (int[],   0)
+
+   tst_sumOfNegElems     (LIST1,  -9)
+   tst_sumOfNegElems     (LIST2, -16)
+   tst_sumOfNegElems     (int[],   0)
+
+   tst_maxPosElem        (LIST1,   5)
+   tst_maxPosElem        (LIST2,   6)
+   tst_maxPosElem        (int[],   0)
+
+   tst_minNegElem        (LIST1,  -3)
+   tst_minNegElem        (LIST2,  -7)
+   tst_minNegElem        (int[],   0)
+
+//   tst_isOdd             (3, "succ")
+//   tst_isOdd             (6, "fail")
+
+   tst_isEven            (6, "succ")
+   tst_isEven            (3, "fail")
 //
 //    tst_nrOfEvenElems     (LIST1,   1)
 //    tst_nrOfEvenElems     (LIST2,   3)
@@ -204,48 +204,77 @@ proc nrOfPosElems(list:int[] -> nr:int)
 				nrOfPosElems(R -> L)
 
 proc isPositive(int -> int)
-   rule isPositive( 1 -> (n > 0)) :
-   		//	Greater(n, 0) // if positive 
-   rule isPositive (n <= 0 -> 0)
-		//	Greater(0, n) // if negaive - 0 returns to be summed
+   rule isPositive(n -> 1) :
+   			Greater(n, 0) // if positive 
+   rule isPositive (n -> 0) // if positive failed, number is negaive - 0 returns to be summed
+
 // --------------------------------------------------------------------- 4
 proc nrOfNegElems(list:int[] -> nr:int)
    // Computes the number of negative elements in list.
    // Remember: 0 is not negative.
+   rule nrOfNegElems(int[] -> 0):
+   rule nrOfNegElems(int[E::R] -> L + n) :
+                                isNegative(E -> n)
+                                nrOfNegElems(R -> L)
 
-   rule nrOfNegElems(L -> -999):
+proc isNegative(int -> int)
+   rule isNegative(n -> 1) :
+                        Less(n, 0) // if negative 
+   rule isNegative (n -> 0) // if negative failed, number is positive - 0 returns to be summed
+
 // --------------------------------------------------------------------- 5
 proc sumOfPosElems(list:int[] -> sum:int)
    // Computes the sum of all positive numbers in list.
+   rule sumOfPosElems(int[] -> 0):
+   rule sumOfPosElems(int[E::R] -> L + E * n) : 
+				isPositive(E -> n) // if succeed: retuns 1 as neutral element for mult
+				sumOfPosElems(R -> L)
 
-   rule sumOfPosElems(L -> -999):
 // --------------------------------------------------------------------- 6
+// This and below: the Haskell anotation for list [H::T] is used. H = head, T = tail.
 proc sumOfNegElems(list:int[] -> sum:int)
    // Coumputes the sum of all negative numbers in list.
+   rule sumOfNegElems(int[] -> 0):
+   rule sumOfNegElems(int[H::T] -> L + H * n) :
+				isNegative(H -> n)
+				sumOfNegElems(T -> L)
 
-   rule sumOfNegElems(L -> -999):
+
 // --------------------------------------------------------------------- 7
 proc maxPosElem(list:int[] -> max:int)
    // Computes the largest postivie element (max) in list
    // (and 0 if list does not contain positive numbers).
-
-   rule maxPosElem(L -> -999):
+   rule maxPosElem(int[] -> 0):
+   rule maxPosElem(int[H::T] -> H) : // set the first element as max
+				maxPosElem(T -> MT)
+				Greater(H, MT) // compare first element with the executed one
+   rule maxPosElem(int[H::T] -> MT) :
+				maxPosElem(T -> MT) // if comparasion failed : set the new max element
 // --------------------------------------------------------------------- 8
 proc minNegElem(list:int[] -> min:int)
    // Computes the smallest negative element (min) in list
    // (and 0 if list does not contain negative numbers).
 
-   rule minNegElem(L -> -999):
+   rule minNegElem(int[] -> 0):
+   rule minNegElem(int[H::T] -> H) :
+				minNegElem(T -> MT)
+				Less(H, MT)
+   rule minNegElem(int[H::T] -> MT) :
+				minNegElem(T -> MT)
+
 // --------------------------------------------------------------------- 9
 condition isEven(number:int)
-   // Succeeds iff number is even
+   // Succeeds if number is even
+  
+   rule isEven(0) : 
+   rule isEven(1) : error "Not even number", POS
+   rule isEven(n) : isEven(n - 2)
 
-   rule isEven(N):
 // -------------------------------------------------------------------- 10
 condition isOdd(number:int)
-   // Succeeds iff number is odd
+   // Succeeds if number is odd
 
-   rule isOdd(N):
+   rule isOdd(n) : Greater(n, 1)
 // -------------------------------------------------------------------- 11
 proc nrOfEvenElems(list:int[] -> nrEven:int)
    // Computes the number of even elements (nrEven) in list.
