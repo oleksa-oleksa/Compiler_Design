@@ -103,67 +103,67 @@ root
    tst_nrOfOddElems      (LIST1,   6)
    tst_nrOfOddElems      (LIST2,   4)
    tst_nrOfOddElems      (int[],   0)
-//
-//    tst_nrsOfPosNegElems  (LIST1, 3, 3)
-//    tst_nrsOfPosNegElems  (LIST2, 3, 4)
-//    tst_nrsOfPosNegElems  (int[], 0, 0)
-//
-//    tst_nrsOfNegEvenElems (LIST1, 3, 1)
-//    tst_nrsOfNegEvenElems (LIST2, 4, 3)
-//    tst_nrsOfNegEvenElems (int[], 0, 0)
-//
-//    tst_listOfPosElems    (LIST1, int[5, 5, 5])
-//    tst_listOfPosElems    (LIST2, int[2, 4, 6])
-//    tst_listOfPosElems    (int[], int[])
-//
-//    tst_listOfNegElems    (LIST1, int[-3, -3, -3])
-//    tst_listOfNegElems    (LIST2, int[-1, -3, -5, -7])
-//    tst_listOfNegElems    (int[], int[])
-//
-//    tst_listsOfPosNegElems(LIST1, int[5, 5, 5], int[-3, -3, -3])
-//    tst_listsOfPosNegElems(LIST2, int[2, 4, 6], int[-1, -3, -5, -7])
-//    tst_listsOfPosNegElems(int[], int[],        int[])
-//
-//    tst_listOfEvenElems   (LIST1, int[0])
-//    tst_listOfEvenElems   (LIST2, int[2, 4, 6])
-//    tst_listOfEvenElems   (int[], int[])
-//
-//    tst_nrOfEqualNeighbors(LIST1,   2)
-//    tst_nrOfEqualNeighbors(LIST2,   0)
-//    tst_nrOfEqualNeighbors(int[5, 5, 5],   1)
-//
-//    tst_containsElem      (LIST1,   0, "succ")
-//    tst_containsElem      (LIST2,  +5, "fail")
-//
-//    tst_containsList      (LIST1, int[5, 0, -3],  "succ")
-//    tst_containsList      (LIST1, int[5, 0,  3],  "fail")
-//    tst_containsList      (int[1, 2], int[2,1,2], "succ")
-//
-//    tst_containsEqualElems(LIST1, "succ")
-//    tst_containsEqualElems(LIST2, "fail")
-//
-//    tst_containEqualElems (int[1, 2, 3], int[3, 1, 2], "succ")
-//    tst_containEqualElems (int[1, 2, 3], int[1, 2],    "fail")
-//    tst_containEqualElems (int[1, 2, 2], int[2, 1],    "succ")
-//
-//    tst_isSortedAscending (int[1, 2, 3], "succ")
-//    tst_isSortedAscending (int[1, 2, 1], "fail")
-//
-//    tst_isSortedDescending (int[3, 2, 1], "succ")
-//    tst_isSortedDescending (int[1, 2, 1], "fail")
-//
-//    tst_firstElem(int[],   int[])
-//    tst_firstElem(int[10], int[10])
-//    tst_firstElem(int[10, 20, 30], int[10])
-//
-//    tst_butFirstElem(int[],   int[])
-//    tst_butFirstElem(int[10], int[])
-//    tst_butFirstElem(int[10, 20, 30], int[20, 30])
-//
-//    tst_lastElem(int[],   int[])
-//    tst_lastElem(int[10], int[10])
-//    tst_lastElem(int[10, 20, 30], int[30])
-//
+
+   tst_nrsOfPosNegElems  (LIST1, 3, 3)
+   tst_nrsOfPosNegElems  (LIST2, 3, 4)
+   tst_nrsOfPosNegElems  (int[], 0, 0)
+
+   tst_nrsOfNegEvenElems (LIST1, 3, 1)
+   tst_nrsOfNegEvenElems (LIST2, 4, 3)
+   tst_nrsOfNegEvenElems (int[], 0, 0)
+
+   tst_listOfPosElems    (LIST1, int[5, 5, 5])
+   tst_listOfPosElems    (LIST2, int[2, 4, 6])
+   tst_listOfPosElems    (int[], int[])
+
+   tst_listOfNegElems    (LIST1, int[-3, -3, -3])
+   tst_listOfNegElems    (LIST2, int[-1, -3, -5, -7])
+   tst_listOfNegElems    (int[], int[])
+
+   tst_listsOfPosNegElems(LIST1, int[5, 5, 5], int[-3, -3, -3])
+   tst_listsOfPosNegElems(LIST2, int[2, 4, 6], int[-1, -3, -5, -7])
+   tst_listsOfPosNegElems(int[], int[],        int[])
+
+   tst_listOfEvenElems   (LIST1, int[0])
+   tst_listOfEvenElems   (LIST2, int[2, 4, 6])
+   tst_listOfEvenElems   (int[], int[])
+
+   tst_nrOfEqualNeighbors(LIST1,   2)
+   tst_nrOfEqualNeighbors(LIST2,   0)
+   tst_nrOfEqualNeighbors(int[5, 5, 5],   1)
+
+   tst_containsElem      (LIST1,   0, "succ")
+   tst_containsElem      (LIST2,  +5, "fail")
+
+   tst_containsList      (LIST1, int[5, 0, -3],  "succ")
+   tst_containsList      (LIST1, int[5, 0,  3],  "fail")
+   tst_containsList      (int[1, 2], int[2,1,2], "succ")
+
+   tst_containsEqualElems(LIST1, "succ")
+   tst_containsEqualElems(LIST2, "fail")
+
+   tst_containEqualElems (int[1, 2, 3], int[3, 1, 2], "succ")
+   tst_containEqualElems (int[1, 2, 3], int[1, 2],    "fail")
+   tst_containEqualElems (int[1, 2, 2], int[2, 1],    "succ")
+
+   tst_isSortedAscending (int[1, 2, 3], "succ")
+   tst_isSortedAscending (int[1, 2, 1], "fail")
+
+   tst_isSortedDescending (int[3, 2, 1], "succ")
+   tst_isSortedDescending (int[1, 2, 1], "fail")
+
+   tst_firstElem(int[],   int[])
+   tst_firstElem(int[10], int[10])
+   tst_firstElem(int[10, 20, 30], int[10])
+
+   tst_butFirstElem(int[],   int[])
+   tst_butFirstElem(int[10], int[])
+   tst_butFirstElem(int[10, 20, 30], int[20, 30])
+
+   tst_lastElem(int[],   int[])
+   tst_lastElem(int[10], int[10])
+   tst_lastElem(int[10, 20, 30], int[30])
+
 //    tst_butLastElem(int[],   int[])
 //    tst_butLastElem(int[10], int[])
 //    tst_butLastElem(int[10, 20, 30], int[10, 20])
@@ -312,37 +312,75 @@ proc nrOfOddElems(list:int[] -> nrOdd:int)
 proc nrsOfPosNegElems(list:int[] -> nrPos:int, nrNeg:int)
    // Computes the number of positive elements (nrPos)
    // and      the number of negative elements (nrNeg) in list.
+   rule nrsOfPosNegElems(int[] -> 0, 0) :
+   rule nrsOfPosNegElems(int[H::T] -> L + n, K + m) : isPositive(H -> n)
+						      isNegative(H -> m)
+						      nrsOfPosNegElems(T -> L, K)
 
-   rule nrsOfPosNegElems(L -> -999, -999)
 // -------------------------------------------------------------------- 14
-proc nrsOfNegEvenElems(list:int[] -> nrPos:int, nrEven:int)
-   // Computes the number of positive elements (nrPos)
+proc nrsOfNegEvenElems(list:int[] -> nrNeg:int, nrEven:int)
+   // Computes the number of negative elements (nrPos)
    // and      the number of even     elements (nrEven) in list
+ 
+   rule nrsOfNegEvenElems(int[] -> 0, 0):
 
-   rule nrsOfNegEvenElems(L -> -999, -999):
+   rule nrsOfNegEvenElems(int[H::T] -> N, E + 1) : GreaterOrEqual(H, 0)
+                                                 isEven(H)
+                                                 nrsOfNegEvenElems(T -> N, E)
+
+   rule nrsOfNegEvenElems(int[H::T] -> N + 1, E + 1) : Less(H, 0)
+                                                       isEven(H)
+                                                       nrsOfNegEvenElems(T -> N, E)
+
+   rule nrsOfNegEvenElems(int[H::T] -> N + 1, E) : Less(H, 0)
+                                                   nrsOfNegEvenElems(T -> N, E)
+
+   rule nrsOfNegEvenElems(int[H::T] -> N, E) :     nrsOfNegEvenElems(T -> N, E)
+
 // -------------------------------------------------------------------- 15
 proc listOfPosElems(list:int[] -> listPos:int[])
    // The listPos contains all positive elements of list
    // Remember: 0 is not positive.
+   rule listOfPosElems(int[] -> int[]):
+   rule listOfPosElems(int[H::T] -> int[H::R]) : Greater(H, 0)
+					        listOfPosElems(T -> R)
+  rule listOfPosElems(int[H::T] -> R) : LessOrEqual(H, 0)
+						listOfPosElems(T -> R)
 
-   rule listOfPosElems(L -> int[-999]):
 // -------------------------------------------------------------------- 16
 proc listOfNegElems(list:int[] -> listNeg:int[])
    // The listNeg contains all negative elements of list
    // Remenber: 0 is not negative.
 
-   rule listOfNegElems(L -> int[-999]):
+  rule listOfNegElems(int[] -> int[]):
+   rule listOfNegElems(int[H::T] -> int[H::R]) : Greater(0, H)
+                                                listOfNegElems(T -> R)
+  rule listOfNegElems(int[H::T] -> R) : GreaterOrEqual(H, 0)
+                                                listOfNegElems(T -> R)
 // -------------------------------------------------------------------- 17
 proc listsOfPosNegElems(list:int[] -> listPos:int[], listNeg:int[])
    // The listPos contains all positive and listNeg all negative
    // elements of list.
+   rule listsOfPosNegElems(int[] -> int[], int[]):
+   rule listsOfPosNegElems(int[H::T] -> int[H::RP], RN) :
+   						          Greater(H, 0)
+						          listsOfPosNegElems(T -> RP, RN)
+  rule listsOfPosNegElems(int[H::T] -> RP, int[H::RN]) :
+                                                          Less(H, 0)
+                                                          listsOfPosNegElems(T -> RP, RN)
 
-   rule listsOfPosNegElems(L -> int[-999], int[-999]):
+  rule listsOfPosNegElems(int[H::T] -> RP, RN) :          Equal(H, 0)
+                                                          listsOfPosNegElems(T -> RP, RN)
+
 // -------------------------------------------------------------------- 18
 proc listOfEvenElems(list:int[] -> listEven:int[])
    // The listEven contains all even elements of list
+   rule listOfEvenElems(int[] -> int[]):
+   rule listOfEvenElems(int[H::T] -> int[H::R]) : isEven(H)
+					      listOfEvenElems(T -> R)
+   rule listOfEvenElems(int[H::T] -> R) : listOfEvenElems(T->R)
 
-   rule listOfEvenElems(L -> int[-999]):
+
 // -------------------------------------------------------------------- 19
 proc nrOfEqualNeighbors(list:int[] -> pairs:int)
    // Computes the number of pairs of equal neighbors in list.
@@ -350,26 +388,36 @@ proc nrOfEqualNeighbors(list:int[] -> pairs:int)
    // int[5, 5, 5]    contains 1 pair  of equal neighbors (and a single 5)
    // int[5, 5, 5, 5] contains 2 pairs of equal neighbors
    // int[5, 4, 5, 4] contains 0 pairs of equal neighbors
+   rule nrOfEqualNeighbors(int[] -> 0):
+   rule nrOfEqualNeighbors(int[H1,H2::T] -> L + 1) : Equal(H1, H2)
+						      nrOfEqualNeighbors(T -> L)
+  rule nrOfEqualNeighbors(int[H1,H2::T] -> L + 0) : Unequal(H1, H2)
+                                                      nrOfEqualNeighbors(int[H2::T] -> L)
+  rule nrOfEqualNeighbors(int[H::T] -> 0) :
 
-   rule nrOfEqualNeighbors(L -> -999):
 // -------------------------------------------------------------------- 20
 condition containsElem(list:int[], elem:int)
-   // Succeeds iff the list contains the elem
+   // Succeeds if the list contains the elem
+   rule containsElem(int[H::T], E) : Equal(H, E)
+   rule containsElem(int[H::T], E) : Unequal(H, E)
+				     containsElem(T, E)
 
-   rule containsElem(L, E): L -> int[N]
 // -------------------------------------------------------------------- 21
 condition containsList(list1:int[], list2:int[])
-   // Succeeds iff list1 contains list2, i.e.
-   // iff each element of list2 is contained (at least once) in list1.
+   // Succeeds if list1 contains list2, i.e.
+   // if each element of list2 is contained (at least once) in list1.
    // Note: In the presence of double elements, a shorter list may
-   // contain a longer list (e.g. int[1, 2] contains int[2, 1, 2])
+   // contain a longer list (e.g. int[1, 2] contains int[2, 1, 2]
+   rule containsList(L1, int[]) :
+   rule containsList(L1, int[H::T]) : containsElem(L1, H)
+                                      containsList(L1, T)
 
-   rule containsList(L1, L2): L1 -> int[N]
 // -------------------------------------------------------------------- 22
 condition containsEqualElems(list:int[])
-   // Succeeds iff list contains at least two elements which are equal.
+   // Succeeds if list contains at least two elements which are equal.
+   rule containsEqualElems(int[H::T]) : containsElem(T, H)
+   rule containsEqualElems(int[H::T]) : containsEqualElems(T)
 
-   rule containsEqualElems(L): L -> int[N]
 // -------------------------------------------------------------------- 23
 condition containEqualElems(list1:int[], list2:int[])
    // Succeeds iff
@@ -378,37 +426,49 @@ condition containEqualElems(list1:int[], list2:int[])
    // In the presence of double elements this predicate may succeed even
    // if list1 and list2 are of different lengths
    // (e.g. containEqualElems(int[1, 2, 2], int[2, 1]) succeeds).
+   rule containEqualElems(L1, L2):  containsList(L1, L2)
+                                    containsList(L2, L1)
 
-   rule containEqualElems(L1, L2): L1 -> int[N]
 // -------------------------------------------------------------------- 24
 condition isSortedAscending(list:int[])
    // Succeeds iff list is sorted in ascending order
+   rule isSortedAscending(int[]) :
+   rule isSortedAscending(int[H1,H2::T]): LessOrEqual(H1, H2)
+					  isSortedAscending(int[H2::T])
 
-   rule isSortedAscending(L): L -> int[N]
+   rule isSortedAscending(int[H1]):
+
 // -------------------------------------------------------------------- 25
 condition isSortedDescending(list:int[])
    // Succeeds iff list is sorted in descending order
+   rule isSortedDescending(int[]) :
+   rule isSortedDescending(int[H1,H2::T]): GreaterOrEqual(H1, H2)
+					   isSortedDescending(int[H2::T])
+   rule isSortedDescending(int[H1]):
 
-   rule isSortedDescending(L): L -> int[]
 // -------------------------------------------------------------------- 26
 proc firstElem(listIn:int[] -> listOut:int[])
    // If listIn is empty, listOut will also be empty.
    // Otherwise listOut will contain (only) the first element of listIn.
+   rule firstElem(int[] -> int[]):
+   rule firstElem(int[H::T] -> int[H]) :
 
-   rule firstElem(L -> int[999]):
 // -------------------------------------------------------------------- 27
 proc butFirstElem(listIn:int[] -> listOut:int[])
    // If listIn is empty, listOut will also be empty.
    // Otherwise listOut will contain all elements of listIn except
    // the first one.
+   rule butFirstElem(int[] -> int[]):
+   rule butFirstElem(int[H::T] -> T):
 
-   rule butFirstElem(L -> int[999]):
 // -------------------------------------------------------------------- 28
 proc lastElem(listIn:int[] -> listOut:int[])
    // If listIn is empty, listOut will also be empty.
    // Otherwise listOut will contain (only) the last element of listIn.
+   rule lastElem(int[] -> int[]) :
+   rule lastElem(int[H1,H2::T] -> L) : lastElem(int[H2::T] -> L)
+   rule lastElem(int[H1] -> int[H1]) :
 
-   rule lastElem(L -> int[999]):
 // -------------------------------------------------------------------- 29
 proc butLastElem(listIn:int[] -> listOut:int[])
    // If listIn is empty, listOut will also be empty.
