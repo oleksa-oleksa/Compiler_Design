@@ -164,13 +164,13 @@ root
    tst_lastElem(int[10], int[10])
    tst_lastElem(int[10, 20, 30], int[30])
 
-//    tst_butLastElem(int[],   int[])
-//    tst_butLastElem(int[10], int[])
-//    tst_butLastElem(int[10, 20, 30], int[10, 20])
-//
-//    tst_reverse(int[],   int[])
-//    tst_reverse(int[10], int[10])
-//    tst_reverse(int[10, 20, 30], int[30, 20, 10])
+   tst_butLastElem(int[],   int[])
+   tst_butLastElem(int[10], int[])
+   tst_butLastElem(int[10, 20, 30], int[10, 20])
+
+   tst_reverse(int[],   int[])
+   tst_reverse(int[10], int[10])
+   tst_reverse(int[10, 20, 30], int[30, 20, 10])
 
    // The output is terminated with a summary line:
    Get-NrOfTests   (-> T)
@@ -474,14 +474,25 @@ proc butLastElem(listIn:int[] -> listOut:int[])
    // If listIn is empty, listOut will also be empty.
    // Otherwise listOut will contain all elements of listIn except
    // the last one.
+  rule butLastElem(int[] -> int[]):
+  rule butLastElem(int[H1,H2::T] -> int[H1::L]) : butLastElem(int[H2::T] -> L)
+  rule butLastElem(int[H1] -> int[]) :
 
-   rule butLastElem(L -> int[999]):
 // -------------------------------------------------------------------- 30
 proc reverse(listIn:int[] -> listOut:int[])
    // listOut will contain the same elements as listIn, but
    // in reverse order.
+   rule reverse(int[] -> int[]):
+   rule reverse(L -> int[R::M]) : lastElem2(L -> R)
+				  butLastElem(L -> F)
+				  reverse(F -> M)
 
-   rule reverse(L -> int[999]):
+proc lastElem2(listIn:int[] -> int)
+   // If listIn is empty, listOut will also be empty.
+   // Otherwise listOut will contain (only) the last element of listIn.
+   rule lastElem2(int[H1,H2::T] -> L) : lastElem2(int[H2::T] -> L)
+   rule lastElem2(int[H1] -> H1) :
+
 // ************************************************************************
 // Do not change the code below this line:
 
