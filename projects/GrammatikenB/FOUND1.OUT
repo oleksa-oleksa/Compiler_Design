@@ -1,0 +1,101 @@
+Testfile1
+-----------------------------
+SRC 123#
+No parse error found!
+-----------------------------
+SRC 0#
+No parse error found!
+-----------------------------
+SRC 0123456789#
+No parse error found!
+-----------------------------
+SRC abc#
+No parse error found!
+-----------------------------
+SRC Abc#
+No parse error found!
+-----------------------------
+SRC abcdefghijklmnopqrstuvwxyz#
+No parse error found!
+-----------------------------
+SRC Abcdefghijklmnopqrstuvwxyz#
+No parse error found!
+-----------------------------
+SRC Zbcdefghijklmnopqrstuvwxyz#
+No parse error found!
+-----------------------------
+SRC 123#abc#
+No parse error found!
+-----------------------------
+SRC abc#123#
+No parse error found!
+-----------------------------
+SRC 123#abc#456#
+No parse error found!
+-----------------------------
+SRC abc#123#def#
+No parse error found!
+-----------------------------
+SRC 123#abc#456#def#
+No parse error found!
+-----------------------------
+SRC abc#123#def#456#
+No parse error found!
+-----------------------------
+SRC a#1#b#2#c#3#d#4#e#5#f#6#
+No parse error found!
+-----------------------------
+SRC a#1#b#2#c#3#d#4#e#5#f#6#g#
+No parse error found!
+-----------------------------
+SRC 1#a#2#b#3#c#4#d#5#e#6#f#
+No parse error found!
+-----------------------------
+SRC 1#a#2#b#3#c#4#d#5#e#6#f#7#
+No parse error found!
+-----------------------------
+SRC 123
+SRC.TMP, line 2: syntax error
+-----------------------------
+SRC abc
+SRC.TMP, line 2: syntax error
+-----------------------------
+SRC 123abc#
+123abc#
+   ^
+SRC.TMP, line 1: syntax error
+-----------------------------
+SRC abc123#
+abc123#
+   ^
+SRC.TMP, line 1: syntax error
+-----------------------------
+SRC 123##
+123##
+    ^
+SRC.TMP, line 1: syntax error
+-----------------------------
+SRC abc##
+abc##
+    ^
+SRC.TMP, line 1: syntax error
+-----------------------------
+SRC 123#123#
+123#123#
+    ^
+SRC.TMP, line 1: syntax error
+-----------------------------
+SRC abc#abc#
+abc#abc#
+    ^
+SRC.TMP, line 1: syntax error
+-----------------------------
+SRC abc#123?#
+abc#123?#
+       ^
+SRC.TMP, line 1: syntax error
+-----------------------------
+SRC 123#abc!#
+123#abc!#
+       ^
+SRC.TMP, line 1: syntax error

@@ -1,0 +1,41 @@
+Testfile1
+-----------------------------
+SRC The mother of Mary
+The mother of Mary
+-----------------------------
+SRC The father of Mary
+The father of Mary
+-----------------------------
+SRC The mother of John
+The mother of John
+-----------------------------
+SRC The father of John
+The father of John
+-----------------------------
+SRC The mother of the mother of Mary
+The mother of the mother of Mary
+-----------------------------
+SRC The mother of the father of Mary
+The mother of the father of Mary
+-----------------------------
+SRC The father of the mother of Mary
+The father of the mother of Mary
+-----------------------------
+SRC The father of the father of Mary
+The father of the father of Mary
+-----------------------------
+SRC The father of the father of the mother of Mary
+The father of the father of the mother of Mary
+-----------------------------
+SRC The mother of the mother of the father of the mother of John
+The mother of the mother of the father of the mother of John
+-----------------------------
+SRC The MotheR of Mary
+    The MotheR of Mary
+        ^
+ALG.TMP, line 1: syntax error
+-----------------------------
+SRC The fatheR of Angela
+    The fatheR of Angela
+        ^
+ALG.TMP, line 1: syntax error
