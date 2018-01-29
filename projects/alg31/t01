@@ -1,4 +1,0 @@
-write("17 > 15? ");
-writeln(17 > 15);
-write("17 = 15? ");
-writeln(17 = 15);

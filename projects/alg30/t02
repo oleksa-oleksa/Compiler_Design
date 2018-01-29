@@ -1,3 +1,0 @@
-int anna;
-write("anna: ");
-writeln(anna);
